@@ -49,6 +49,10 @@ export class ReactStateMachine extends StateMachine {
 	}
 
 	protected doTransition(implementation: TransitionFunction, ...args: any[]) {
+		if (typeof implementation !== 'function') {
+			return super.doTransition(implementation);
+		}
+
 		super.doTransition(
 			() => implementation(this.component, ...args), args,
 		);

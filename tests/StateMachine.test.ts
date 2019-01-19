@@ -14,9 +14,9 @@ describe('StateMachine', () => {
 	it('works', () => {
 		const stateMachine = new StateMachine([
 			transition(INITIAL, () => STATE_A),
-			transition(STATE_A, SIGNAL_LOW, () => STATE_A),
-			transition(STATE_A, SIGNAL_HIGH, () => STATE_B),
-			transition(STATE_B, SIGNAL_HIGH, () => STATE_A),
+			transition(STATE_A, SIGNAL_LOW, STATE_A),
+			transition(STATE_A, SIGNAL_HIGH, STATE_B),
+			transition(STATE_B, SIGNAL_HIGH, STATE_A),
 		]);
 
 		expect(stateMachine.constructor).toBe(StateMachine);
@@ -58,8 +58,8 @@ describe('StateMachine', () => {
 
 		stateMachine = new StateMachine([
 			transition(INITIAL, () => STATE_A),
-			new CustomTransition(STATE_A, SIGNAL_HIGH, () => STATE_B),
-			transition(STATE_A, SIGNAL_LOW, () => INITIAL),
+			new CustomTransition(STATE_A, SIGNAL_HIGH, STATE_B),
+			transition(STATE_A, SIGNAL_LOW, INITIAL),
 		]);
 
 		stateMachine.transition(SIGNAL_LOW);
@@ -92,15 +92,15 @@ describe('StateMachine', () => {
 					expect(args.join(',')).toBe('1,2,3');
 
 					log.push('called');
-					return implementation();
+					return typeof implementation === 'function' ? implementation() : implementation;
 				});
 			}
 		}
 
 		stateMachine = new StateMachine([
 			transition(INITIAL, () => STATE_A),
-			new CustomTransition(STATE_A, SIGNAL_HIGH, () => STATE_B),
-			transition(STATE_A, SIGNAL_LOW, () => INITIAL),
+			new CustomTransition(STATE_A, SIGNAL_HIGH, STATE_B),
+			transition(STATE_A, SIGNAL_LOW, INITIAL),
 		]);
 
 		stateMachine.transition(SIGNAL_LOW);

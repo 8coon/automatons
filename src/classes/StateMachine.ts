@@ -1,7 +1,7 @@
 
 export type State = number | string | symbol;
 export type Signal = number | string | symbol;
-export type TransitionFunction = (...args: any) => State;
+export type TransitionFunction = State | ((...args: any) => State);
 
 export type Transitions = Transition[];
 
@@ -57,7 +57,7 @@ export class StateMachine {
 	}
 
 	public reset() {
-		this.doTransition(() => INITIAL);
+		this.doTransition(INITIAL);
 	}
 
 	protected doTransition(implementation: TransitionFunction, ...args: any[]) {
@@ -65,7 +65,12 @@ export class StateMachine {
 			(_) => _.onConditionsUnmet(this),
 		);
 
-		this.currentState = implementation(this, ...args);
+		if (typeof implementation === 'function') {
+			this.currentState = implementation(this, ...args);
+		} else {
+			this.currentState = implementation;
+		}
+
 		this.possibleTransitions = this.getPossibleTransitions();
 
 		this.possibleTransitions.forEach(

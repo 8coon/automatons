@@ -26,16 +26,16 @@ export class Transition {
 		public implementation: TransitionFunction,
 	) {}
 
-	public onConditionsMet(stateMachine: StateMachine): void {
+	public onConditionsMet(stateMachine: Automaton): void {
 		// Placeholder
 	}
 
-	public onConditionsUnmet(stateMachine: StateMachine): void {
+	public onConditionsUnmet(stateMachine: Automaton): void {
 		// Placeholder
 	}
 }
 
-export class StateMachine {
+export class Automaton {
 
 	public get state(): State {
 		return this.currentState;

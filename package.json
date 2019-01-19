@@ -7,7 +7,8 @@
     "test": "jest --coverage",
     "build": "tsc && rollup --config rollup.config.js",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "fix": "npm run lint -- --fix"
+    "fix": "npm run lint -- --fix",
+    "docs": "typedoc --out docs/ src/"
   },
   "keywords": [
     "side-effect",
@@ -39,6 +40,7 @@
     "ts-jest": "^23.10.5",
     "tslib": "^1.9.3",
     "tslint": "^5.12.1",
+    "typedoc": "^0.14.2",
     "typescript": "^3.2.2"
   },
   "peerDependencies": {

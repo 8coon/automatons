@@ -16,7 +16,7 @@ import {
 import {
 	INITIAL, State, Transition,
 	transition,
-} from "../src/classes/StateMachine";
+} from "../src/classes/Automaton";
 
 import {timer} from "../src";
 

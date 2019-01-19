@@ -1,7 +1,7 @@
 export {
 	INITIAL,
 	transition,
-} from "./classes/StateMachine";
+} from "./classes/Automaton";
 
 export {
 	timer,

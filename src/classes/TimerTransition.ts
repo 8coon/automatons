@@ -1,4 +1,4 @@
-import {State, StateMachine, Transition, TransitionFunction} from "./StateMachine";
+import {State, Automaton, Transition, TransitionFunction} from "./Automaton";
 
 class TimerTransition extends Transition {
 
@@ -16,17 +16,17 @@ class TimerTransition extends Transition {
 		super(state, TimerTransition.signal(ms), implementation);
 	}
 
-	public onConditionsMet(stateMachine: StateMachine): void {
+	public onConditionsMet(stateMachine: Automaton): void {
 		super.onConditionsMet(stateMachine);
 		this.timer = setTimeout(this.handleTimer.bind(this, stateMachine), this.ms);
 	}
 
-	public onConditionsUnmet(stateMachine: StateMachine): void {
+	public onConditionsUnmet(stateMachine: Automaton): void {
 		super.onConditionsUnmet(stateMachine);
 		clearTimeout(this.timer);
 	}
 
-	private handleTimer(stateMachine: StateMachine) {
+	private handleTimer(stateMachine: Automaton) {
 		stateMachine.transition(TimerTransition.signal(this.ms));
 	}
 }

@@ -5,13 +5,13 @@ import {patchMethod} from "../utils/patchMethod";
 
 import {
 	Signal,
-	StateMachine,
+	Automaton,
 	Transition,
 	TransitionFunction,
-} from "./StateMachine";
+} from "./Automaton";
 
 export interface IAutomatonComponent<P = any, S = any> extends React.Component<P, S> {
-	automaton: StateMachine;
+	automaton: Automaton;
 	transitions: Transition[];
 }
 
@@ -29,7 +29,7 @@ interface IReactEventHandlers {
 	[signal: string]: React.EventHandler<any>;
 }
 
-export class ReactStateMachine extends StateMachine {
+export class ReactAutomaton extends Automaton {
 	private handlers: IReactEventHandlers = {};
 
 	constructor(private component: IAutomatonComponent) {
@@ -94,12 +94,16 @@ export const withAutomaton = mixinDecoratorFactory<
 	},
 
 	onConstruct(self: IAutomatonComponent): void {
-		self.automaton = new ReactStateMachine(self);
+		self.automaton = new ReactAutomaton(self);
 		self.automaton.transition(CREATE, self);
 	},
 });
 
-export function automatonOf(component: React.Component): ReactStateMachine {
+/**
+ * Returns the
+ * @param component
+ */
+export function automatonOf(component: React.Component): ReactAutomaton {
 	return (component as any).automaton;
 }
 

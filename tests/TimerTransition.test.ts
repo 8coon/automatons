@@ -1,4 +1,4 @@
-import {INITIAL, StateMachine, transition} from "../src/classes/StateMachine";
+import {INITIAL, Automaton, transition} from "../src/classes/Automaton";
 import {timer} from "../src/classes/TimerTransition";
 
 const STATE_A = 0;
@@ -9,7 +9,7 @@ const SIGNAL_HIGH = 1;
 describe('TimerTransition', () => {
 
 	it('works', async () => {
-		const stateMachine = new StateMachine([
+		const stateMachine = new Automaton([
 			transition(INITIAL, () => STATE_A),
 			timer(STATE_A, 10, () => STATE_B),
 			transition(STATE_B, SIGNAL_LOW, () => STATE_A),
@@ -26,7 +26,7 @@ describe('TimerTransition', () => {
 	});
 
 	it('works with cancellation', async () => {
-		const stateMachine = new StateMachine([
+		const stateMachine = new Automaton([
 			transition(INITIAL, () => STATE_A),
 			timer(STATE_A, 10, () => STATE_B),
 			transition(STATE_A, SIGNAL_HIGH, () => INITIAL),

@@ -1,25 +1,25 @@
 import {
 	INITIAL, Signal, State,
-	StateMachine, Transition,
+	Automaton, Transition,
 	transition, TransitionFunction,
-} from "../src/classes/StateMachine";
+} from "../src/classes/Automaton";
 
 const STATE_A = 0;
 const STATE_B = 1;
 const SIGNAL_LOW = 0;
 const SIGNAL_HIGH = 1;
 
-describe('StateMachine', () => {
+describe('Automaton', () => {
 
 	it('works', () => {
-		const stateMachine = new StateMachine([
+		const stateMachine = new Automaton([
 			transition(INITIAL, () => STATE_A),
 			transition(STATE_A, SIGNAL_LOW, STATE_A),
 			transition(STATE_A, SIGNAL_HIGH, STATE_B),
 			transition(STATE_B, SIGNAL_HIGH, STATE_A),
 		]);
 
-		expect(stateMachine.constructor).toBe(StateMachine);
+		expect(stateMachine.constructor).toBe(Automaton);
 
 		expect(stateMachine.state).toBe(INITIAL);
 		stateMachine.transition(SIGNAL_LOW);
@@ -38,17 +38,17 @@ describe('StateMachine', () => {
 
 	it('supports lifecycle methods', () => {
 		const log = [];
-		let stateMachine: StateMachine;
+		let stateMachine: Automaton;
 
 		class CustomTransition extends Transition {
-			onConditionsMet(target: StateMachine): void {
+			onConditionsMet(target: Automaton): void {
 				super.onConditionsMet(target);
 				expect(target).toBe(stateMachine);
 
 				log.push('met');
 			}
 
-			onConditionsUnmet(target: StateMachine): void {
+			onConditionsUnmet(target: Automaton): void {
 				super.onConditionsUnmet(target);
 				expect(target).toBe(stateMachine);
 
@@ -56,7 +56,7 @@ describe('StateMachine', () => {
 			}
 		}
 
-		stateMachine = new StateMachine([
+		stateMachine = new Automaton([
 			transition(INITIAL, () => STATE_A),
 			new CustomTransition(STATE_A, SIGNAL_HIGH, STATE_B),
 			transition(STATE_A, SIGNAL_LOW, INITIAL),
@@ -79,7 +79,7 @@ describe('StateMachine', () => {
 
 	it('supports transition arguments', () => {
 		const log: string[] = [];
-		let stateMachine: StateMachine;
+		let stateMachine: Automaton;
 
 		class CustomTransition extends Transition {
 			constructor(
@@ -87,7 +87,7 @@ describe('StateMachine', () => {
 				signal: Signal | undefined,
 				implementation: TransitionFunction
 			) {
-				super(state, signal, (target: StateMachine, ...args: []) => {
+				super(state, signal, (target: Automaton, ...args: []) => {
 					expect(target).toBe(stateMachine);
 					expect(args.join(',')).toBe('1,2,3');
 
@@ -97,7 +97,7 @@ describe('StateMachine', () => {
 			}
 		}
 
-		stateMachine = new StateMachine([
+		stateMachine = new Automaton([
 			transition(INITIAL, () => STATE_A),
 			new CustomTransition(STATE_A, SIGNAL_HIGH, STATE_B),
 			transition(STATE_A, SIGNAL_LOW, INITIAL),

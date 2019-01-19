@@ -1,7 +1,7 @@
 import NodeResolve from 'rollup-plugin-node-resolve';
 
 const baseConfig = format => ({
-	input: 'lib/src/index.js',
+	input: 'lib/index.js',
 	output: {
 		file: `dist/automatons.${format}.js`,
 		name: 'automatons',

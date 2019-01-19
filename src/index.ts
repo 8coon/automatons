@@ -1,6 +1,9 @@
 export {
 	INITIAL,
 	transition,
+	automaton,
+	Automaton,
+	Transition,
 } from "./classes/Automaton";
 
 export {

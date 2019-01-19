@@ -10,25 +10,69 @@ import {
 	TransitionFunction,
 } from "./Automaton";
 
+/**
+ * @ignore
+ */
 export interface IAutomatonComponent<P = any, S = any> extends React.Component<P, S> {
 	automaton: Automaton;
 	transitions: Transition[];
 }
 
+/**
+ * This signal fires when the target React component is created.
+ * @see [[ReactAutomaton]]
+ */
 export const CREATE = "create";
+
+/**
+ * This signal fires after the target React component is mounted.
+ * @see [[ReactAutomaton]]
+ */
 export const MOUNT = "mount";
+
+/**
+ * This signal fires after the target React component is updated.
+ * @see [[ReactAutomaton]]
+ */
 export const UPDATE = "update";
+
+/**
+ * This signal fires before the target React component is unmounted.
+ * @see [[ReactAutomaton]]
+ */
 export const UNMOUNT = "unmount";
+
+/**
+ * This signal fires if the target React component catches error
+ * @see [[ReactAutomaton]]
+ * @see [[IAutomatonDecoratorParams]]
+ */
 export const CATCH = "catch";
 
+/**
+ * Parameters of [[withAutomaton]] decorator.
+ */
 export interface IAutomatonDecoratorParams {
+	/**
+	 * Determines whether or not [[withAutomaton]] should provide `componentDidCatch`
+	 * lifecycle method.
+	 */
 	catching?: boolean;
 }
 
+/**
+ * @ignore
+ */
 interface IReactEventHandlers {
 	[signal: string]: React.EventHandler<any>;
 }
 
+/**
+ * This class is used to extend [[Automaton]] functionality so it can be used with React components.
+ *
+ * [[ReactAutomaton]] always passes the host component instance to it's transition functions as
+ * the first argument.
+ */
 export class ReactAutomaton extends Automaton {
 	private handlers: IReactEventHandlers = {};
 
@@ -36,6 +80,11 @@ export class ReactAutomaton extends Automaton {
 		super(component.transitions || /* istanbul ignore next */ []);
 	}
 
+	/**
+	 * This method is used by [[asSignal]] to produce signaling event handlers.
+	 *
+	 * @param signal
+	 */
 	public signal(signal: Signal): React.EventHandler<any> {
 		const key = String(signal);
 
@@ -48,6 +97,12 @@ export class ReactAutomaton extends Automaton {
 		return this.handlers[key];
 	}
 
+	/**
+	 * Calls transition implementation, passing the host component instance.
+	 *
+	 * @param implementation
+	 * @param args
+	 */
 	protected doTransition(implementation: TransitionFunction, ...args: any[]) {
 		if (typeof implementation !== 'function') {
 			return super.doTransition(implementation);
@@ -59,9 +114,10 @@ export class ReactAutomaton extends Automaton {
 	}
 }
 
-export const withAutomaton = mixinDecoratorFactory<
-	IAutomatonComponent, IAutomatonDecoratorParams
->({
+/**
+ * @ignore
+ */
+const withAutomationCallbacks = {
 	onPatch<MixinBase, ResultType>(baseClass: MixinBase, params: IAutomatonDecoratorParams): void {
 		const {
 			catching,
@@ -97,16 +153,75 @@ export const withAutomaton = mixinDecoratorFactory<
 		self.automaton = new ReactAutomaton(self);
 		self.automaton.transition(CREATE, self);
 	},
-});
+};
 
 /**
- * Returns the
- * @param component
+ * React component decorator that enchants the provided class with an [[Automaton]] instance.
+ *
+ * [[withAutomaton]] patches some lifecycle methods of the provided component to dispatch
+ * corresponding signals. The signals dispatched are:
+ *
+ * - [[CREATE]], dispatched from the constructor
+ * - [[MOUNT]], dispatched from `componentDidMount`
+ * - [[UPDATE]], dispatched from `componentDidUpdate`
+ * - [[UNMOUNT]], dispatched from `componentWillUnmount`
+ * - [[CATCH]], dispatched from `componentDidCatch` and if `catching` parameter is set to true:
+ *
+ * ```jsx
+ *import {withAutomaton} from 'automatons';
+ *
+ *@withAutomaton({catching: true})
+ *class Button extends React.Component
+ * ```
+ */
+export const withAutomaton = mixinDecoratorFactory<
+	IAutomatonComponent, IAutomatonDecoratorParams
+>(withAutomationCallbacks);
+
+/**
+ * Returns the corresponding [[Automaton]] of the provided React component
+ *
+ * ```jsx
+ *import {withAutomaton, automatonOf} from 'automatons';
+ *
+ *@withAutomaton
+ *class Button extends React.Component {
+ *    render() {
+ *        return (
+ *            <button onClick={() => automatonOf(this).transition('click')}/>
+ *        );
+ *    }
+ *}
+ * ```
+ *
+ * @param component - target component
  */
 export function automatonOf(component: React.Component): ReactAutomaton {
 	return (component as any).automaton;
 }
 
+/**
+ * Creates an event handler callback that, on being called, dispatches a [[Signal]] on
+ * corresponding React component's [[Automaton]]
+ *
+ * ```jsx
+ *import {withAutomaton, asSignal} from 'automatons';
+ *
+ *@withAutomaton
+ *class Button extends React.Component {
+ *    render() {
+ *        return (
+ *            <button onClick={asSignal(this, 'click')}/>
+ *        );
+ *    }
+ *}
+ * ```
+ *
+ * Handler instances produced by this function are memoized internally to avoid unnecessary re-renders.
+ *
+ * @param component - target React component
+ * @param signal - desired signal
+ */
 export function asSignal(component: React.Component, signal: Signal): React.EventHandler<any> {
 	return automatonOf(component).signal(signal);
 }

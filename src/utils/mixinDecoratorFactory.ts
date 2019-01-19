@@ -1,11 +1,20 @@
 
-type Ctor<T = {}> = new(...args: any[]) => T;
+/**
+ * @ignore
+ */
+type Constructor<T = {}> = new(...args: any[]) => T;
 
+/**
+ * @ignore
+ */
 interface IMixinDecoratorCallbacks<MixinInterface, MixinParameters> {
 	onPatch<MixinBase, ResultType>(baseClass: MixinBase, params: MixinParameters): void;
 	onConstruct(baseClassInstance: any): void;
 }
 
+/**
+ * @ignore
+ */
 export function mixinDecoratorFactory<MixinInterface, MixinParameters>(
 	callbacks: IMixinDecoratorCallbacks<MixinInterface, MixinParameters>,
 ) {
@@ -15,9 +24,9 @@ export function mixinDecoratorFactory<MixinInterface, MixinParameters>(
 			return decoratorFactory({})(mixinParams);
 		}
 
-		return <MixinBase extends Ctor>(MixinBase: MixinBase) => {
+		return <MixinBase extends Constructor>(MixinBase: MixinBase) => {
 
-			type ResultType = MixinBase & Ctor<MixinInterface>;
+			type ResultType = MixinBase & Constructor<MixinInterface>;
 
 			const Result = class extends MixinBase {
 				/* istanbul ignore next */

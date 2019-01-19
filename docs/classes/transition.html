@@ -56,10 +56,7 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_classes_statemachine_.html">&quot;classes/StateMachine&quot;</a>
-				</li>
-				<li>
-					<a href="_classes_statemachine_.transition.html">Transition</a>
+					<a href="transition.html">Transition</a>
 				</li>
 			</ul>
 			<h1>Class Transition</h1>
@@ -69,6 +66,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>This class holds the information nesessary to perform a state machine transition.</p>
+					</div>
+					<p>You can extend this class to implement some custom logic.</p>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -76,7 +81,7 @@
 						<span class="target">Transition</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<a href="_classes_timertransition_.timertransition.html" class="tsd-signature-type">TimerTransition</a>
+								<a href="timertransition.html" class="tsd-signature-type">TimerTransition</a>
 							</li>
 						</ul>
 					</li>
@@ -89,22 +94,22 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_classes_statemachine_.transition.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="transition.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_classes_statemachine_.transition.html#implementation" class="tsd-kind-icon">implementation</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_classes_statemachine_.transition.html#signal" class="tsd-kind-icon">signal</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_classes_statemachine_.transition.html#state" class="tsd-kind-icon">state</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="transition.html#implementation" class="tsd-kind-icon">implementation</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="transition.html#signal" class="tsd-kind-icon">signal</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="transition.html#state" class="tsd-kind-icon">state</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_classes_statemachine_.transition.html#onconditionsmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Met</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_classes_statemachine_.transition.html#onconditionsunmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Unmet</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="transition.html#onconditionsmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Met</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="transition.html#onconditionsunmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Unmet</a></li>
 							</ul>
 						</section>
 					</div>
@@ -116,28 +121,45 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Transition<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../modules/_classes_statemachine_.html#state" class="tsd-signature-type">State</a>, signal<span class="tsd-signature-symbol">: </span><a href="../modules/_classes_statemachine_.html#signal" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span>, implementation<span class="tsd-signature-symbol">: </span><a href="../modules/_classes_statemachine_.html#transitionfunction" class="tsd-signature-type">TransitionFunction</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_classes_statemachine_.transition.html" class="tsd-signature-type">Transition</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Transition<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../globals.html#state" class="tsd-signature-type">State</a>, signal<span class="tsd-signature-symbol">: </span><a href="../globals.html#signal" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span>, implementation<span class="tsd-signature-symbol">: </span><a href="../globals.html#transitionfunction" class="tsd-signature-type">TransitionFunction</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transition.html" class="tsd-signature-type">Transition</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/a9abc5f/src/classes/StateMachine.ts#L22">classes/StateMachine.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/6fec079/src/classes/Automaton.ts#L53">classes/Automaton.ts:53</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>state: <a href="../modules/_classes_statemachine_.html#state" class="tsd-signature-type">State</a></h5>
+									<h5>state: <a href="../globals.html#state" class="tsd-signature-type">State</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>state from which the transition is possible</p>
+										</div>
+									</div>
 								</li>
 								<li>
-									<h5>signal: <a href="../modules/_classes_statemachine_.html#signal" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+									<h5>signal: <a href="../globals.html#signal" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>signal, that triggers the transition, or <code>undefined</code> if it is an unconditional transition</p>
+										</div>
+									</div>
 								</li>
 								<li>
-									<h5>implementation: <a href="../modules/_classes_statemachine_.html#transitionfunction" class="tsd-signature-type">TransitionFunction</a></h5>
+									<h5>implementation: <a href="../globals.html#transitionfunction" class="tsd-signature-type">TransitionFunction</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the next state or a function that returns one</p>
+										</div>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_classes_statemachine_.transition.html" class="tsd-signature-type">Transition</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="transition.html" class="tsd-signature-type">Transition</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -147,32 +169,47 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="implementation" class="tsd-anchor"></a>
 					<h3>implementation</h3>
-					<div class="tsd-signature tsd-kind-icon">implementation<span class="tsd-signature-symbol">:</span> <a href="../modules/_classes_statemachine_.html#transitionfunction" class="tsd-signature-type">TransitionFunction</a></div>
+					<div class="tsd-signature tsd-kind-icon">implementation<span class="tsd-signature-symbol">:</span> <a href="../globals.html#transitionfunction" class="tsd-signature-type">TransitionFunction</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/a9abc5f/src/classes/StateMachine.ts#L26">classes/StateMachine.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/6fec079/src/classes/Automaton.ts#L62">classes/Automaton.ts:62</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>the next state or a function that returns one</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="signal" class="tsd-anchor"></a>
 					<h3>signal</h3>
-					<div class="tsd-signature tsd-kind-icon">signal<span class="tsd-signature-symbol">:</span> <a href="../modules/_classes_statemachine_.html#signal" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<div class="tsd-signature tsd-kind-icon">signal<span class="tsd-signature-symbol">:</span> <a href="../globals.html#signal" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/a9abc5f/src/classes/StateMachine.ts#L25">classes/StateMachine.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/6fec079/src/classes/Automaton.ts#L61">classes/Automaton.ts:61</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>signal, that triggers the transition, or <code>undefined</code> if it is an unconditional transition</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="state" class="tsd-anchor"></a>
 					<h3>state</h3>
-					<div class="tsd-signature tsd-kind-icon">state<span class="tsd-signature-symbol">:</span> <a href="../modules/_classes_statemachine_.html#state" class="tsd-signature-type">State</a></div>
+					<div class="tsd-signature tsd-kind-icon">state<span class="tsd-signature-symbol">:</span> <a href="../globals.html#state" class="tsd-signature-type">State</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/a9abc5f/src/classes/StateMachine.ts#L24">classes/StateMachine.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/6fec079/src/classes/Automaton.ts#L60">classes/Automaton.ts:60</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>state from which the transition is possible</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -181,19 +218,26 @@
 					<a name="onconditionsmet" class="tsd-anchor"></a>
 					<h3>on<wbr>Conditions<wbr>Met</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Conditions<wbr>Met<span class="tsd-signature-symbol">(</span>stateMachine<span class="tsd-signature-symbol">: </span><a href="_classes_statemachine_.statemachine.html" class="tsd-signature-type">StateMachine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Conditions<wbr>Met<span class="tsd-signature-symbol">(</span>stateMachine<span class="tsd-signature-symbol">: </span><a href="automaton.html" class="tsd-signature-type">Automaton</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/a9abc5f/src/classes/StateMachine.ts#L29">classes/StateMachine.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/6fec079/src/classes/Automaton.ts#L69">classes/Automaton.ts:69</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>This lifecycle method is triggered when all conditions are met to perform a transition.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>stateMachine: <a href="_classes_statemachine_.statemachine.html" class="tsd-signature-type">StateMachine</a></h5>
+									<h5>stateMachine: <a href="automaton.html" class="tsd-signature-type">Automaton</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -204,19 +248,24 @@
 					<a name="onconditionsunmet" class="tsd-anchor"></a>
 					<h3>on<wbr>Conditions<wbr>Unmet</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Conditions<wbr>Unmet<span class="tsd-signature-symbol">(</span>stateMachine<span class="tsd-signature-symbol">: </span><a href="_classes_statemachine_.statemachine.html" class="tsd-signature-type">StateMachine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Conditions<wbr>Unmet<span class="tsd-signature-symbol">(</span>stateMachine<span class="tsd-signature-symbol">: </span><a href="automaton.html" class="tsd-signature-type">Automaton</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/a9abc5f/src/classes/StateMachine.ts#L33">classes/StateMachine.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/6fec079/src/classes/Automaton.ts#L76">classes/Automaton.ts:76</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>This lifecycle method is triggered when conditions to perform a transition are no longer met</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>stateMachine: <a href="_classes_statemachine_.statemachine.html" class="tsd-signature-type">StateMachine</a></h5>
+									<h5>stateMachine: <a href="automaton.html" class="tsd-signature-type">Automaton</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -231,75 +280,96 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_classes_reactbinding_.html">"classes/<wbr>React<wbr>Binding"</a>
-					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="../modules/_classes_statemachine_.html">"classes/<wbr>State<wbr>Machine"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_classes_timertransition_.html">"classes/<wbr>Timer<wbr>Transition"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_index_.html">"index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_utils_mixindecoratorfactory_.html">"utils/mixin<wbr>Decorator<wbr>Factory"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_utils_patchmethod_.html">"utils/patch<wbr>Method"</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_classes_statemachine_.statemachine.html" class="tsd-kind-icon">State<wbr>Machine</a>
+					<li class=" tsd-kind-class">
+						<a href="automaton.html" class="tsd-kind-icon">Automaton</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="reactautomaton.html" class="tsd-kind-icon">React<wbr>Automaton</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="timertransition.html" class="tsd-kind-icon">Timer<wbr>Transition</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_classes_statemachine_.transition.html" class="tsd-kind-icon">Transition</a>
+					<li class="current tsd-kind-class">
+						<a href="transition.html" class="tsd-kind-icon">Transition</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_classes_statemachine_.transition.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="transition.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_classes_statemachine_.transition.html#implementation" class="tsd-kind-icon">implementation</a>
+								<a href="transition.html#implementation" class="tsd-kind-icon">implementation</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_classes_statemachine_.transition.html#signal" class="tsd-kind-icon">signal</a>
+								<a href="transition.html#signal" class="tsd-kind-icon">signal</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_classes_statemachine_.transition.html#state" class="tsd-kind-icon">state</a>
+								<a href="transition.html#state" class="tsd-kind-icon">state</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_classes_statemachine_.transition.html#onconditionsmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Met</a>
+								<a href="transition.html#onconditionsmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Met</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_classes_statemachine_.transition.html#onconditionsunmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Unmet</a>
+								<a href="transition.html#onconditionsunmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Unmet</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_classes_statemachine_.html#signal" class="tsd-kind-icon">Signal</a>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/iautomatondecoratorparams.html" class="tsd-kind-icon">IAutomaton<wbr>Decorator<wbr>Params</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_classes_statemachine_.html#state" class="tsd-kind-icon">State</a>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#signal" class="tsd-kind-icon">Signal</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_classes_statemachine_.html#transitionfunction" class="tsd-kind-icon">Transition<wbr>Function</a>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#state" class="tsd-kind-icon">State</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_classes_statemachine_.html#transitions" class="tsd-kind-icon">Transitions</a>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#transitionfunction" class="tsd-kind-icon">Transition<wbr>Function</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-						<a href="../modules/_classes_statemachine_.html#initial" class="tsd-kind-icon">INITIAL</a>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#transitions" class="tsd-kind-icon">Transitions</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_classes_statemachine_.html#transition-1" class="tsd-kind-icon">transition</a>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#catch" class="tsd-kind-icon">CATCH</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#create" class="tsd-kind-icon">CREATE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#initial" class="tsd-kind-icon">INITIAL</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#mount" class="tsd-kind-icon">MOUNT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#unmount" class="tsd-kind-icon">UNMOUNT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#update" class="tsd-kind-icon">UPDATE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#withautomaton" class="tsd-kind-icon">with<wbr>Automaton</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#assignal" class="tsd-kind-icon">as<wbr>Signal</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#automaton" class="tsd-kind-icon">automaton</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#automatonof" class="tsd-kind-icon">automaton<wbr>Of</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#timer" class="tsd-kind-icon">timer</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#transition" class="tsd-kind-icon">transition</a>
 					</li>
 				</ul>
 			</nav>

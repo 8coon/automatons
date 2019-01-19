@@ -1,7 +1,12 @@
 import {
-	INITIAL, Signal, State,
-	Automaton, Transition,
-	transition, TransitionFunction,
+	INITIAL,
+	Signal,
+	State,
+	Automaton,
+	Transition,
+	transition,
+	TransitionFunction,
+	automaton,
 } from "../src/classes/Automaton";
 
 const STATE_A = 0;
@@ -12,7 +17,7 @@ const SIGNAL_HIGH = 1;
 describe('Automaton', () => {
 
 	it('works', () => {
-		const stateMachine = new Automaton([
+		const stateMachine = automaton([
 			transition(INITIAL, () => STATE_A),
 			transition(STATE_A, SIGNAL_LOW, STATE_A),
 			transition(STATE_A, SIGNAL_HIGH, STATE_B),
@@ -56,7 +61,7 @@ describe('Automaton', () => {
 			}
 		}
 
-		stateMachine = new Automaton([
+		stateMachine = automaton([
 			transition(INITIAL, () => STATE_A),
 			new CustomTransition(STATE_A, SIGNAL_HIGH, STATE_B),
 			transition(STATE_A, SIGNAL_LOW, INITIAL),
@@ -97,7 +102,7 @@ describe('Automaton', () => {
 			}
 		}
 
-		stateMachine = new Automaton([
+		stateMachine = automaton([
 			transition(INITIAL, () => STATE_A),
 			new CustomTransition(STATE_A, SIGNAL_HIGH, STATE_B),
 			transition(STATE_A, SIGNAL_LOW, INITIAL),

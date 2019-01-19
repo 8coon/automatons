@@ -1,6 +1,6 @@
 {
   "name": "automatons",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Side effect management library based on finite state machines",
   "main": "dist/automatons.cjs.js",
   "scripts": {

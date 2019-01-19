@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "moduleResolution": "Node",
+    "outDir": "lib",
+    "target": "es5",
+    "declaration": true,
+    "jsx": "react",
+    "importHelpers": true,
+    "lib": [
+      "es7",
+      "dom"
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

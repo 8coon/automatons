@@ -104,7 +104,7 @@ export class ReactAutomaton extends Automaton {
 	 * @param args
 	 */
 	protected doTransition(implementation: TransitionFunction, ...args: any[]) {
-		if (typeof implementation !== 'function') {
+		if (typeof implementation !== "function") {
 			return super.doTransition(implementation);
 		}
 

@@ -140,7 +140,7 @@ export class Automaton {
 			(_) => _.onConditionsUnmet(this),
 		);
 
-		if (typeof implementation === 'function') {
+		if (typeof implementation === "function") {
 			this.currentState = implementation(this, ...args);
 		} else {
 			this.currentState = implementation;

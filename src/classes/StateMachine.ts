@@ -1,6 +1,6 @@
 
-export type State = number | string | Symbol;
-export type Signal = number | string | Symbol;
+export type State = number | string | symbol;
+export type Signal = number | string | symbol;
 export type TransitionFunction = (...args: any) => State;
 
 export type Transitions = Transition[];
@@ -9,7 +9,9 @@ export const INITIAL = "initial";
 
 export function transition(state: State, implementation: TransitionFunction): Transition;
 export function transition(state: State, signal: Signal, implementation: TransitionFunction): Transition;
-export function transition(state: State, signalOrImpl: Signal | TransitionFunction, implementation?: TransitionFunction): Transition {
+export function transition(
+	state: State, signalOrImpl: Signal | TransitionFunction, implementation?: TransitionFunction,
+): Transition {
 	if (typeof signalOrImpl === "function") {
 		return new Transition(state, void 0, signalOrImpl as TransitionFunction);
 	}
@@ -25,31 +27,33 @@ export class Transition {
 	) {}
 
 	public onConditionsMet(stateMachine: StateMachine): void {
+		// Placeholder
 	}
 
 	public onConditionsUnmet(stateMachine: StateMachine): void {
+		// Placeholder
 	}
 }
 
 export class StateMachine {
 
 	public get state(): State {
-		return this._state;
+		return this.currentState;
 	}
 
-	private _state: State = INITIAL;
-	private _possibleTransitions: Transition[] = [];
+	private currentState: State = INITIAL;
+	private possibleTransitions: Transition[] = [];
 
 	constructor(private transitions: Transitions) {}
 
 	public transition(signal: Signal, ...args: any[]) {
-		const transition = this.findTransition(signal) || this.findTransition();
+		const target = this.findTransition(signal) || this.findTransition();
 
-		if (!transition) {
+		if (!target) {
 			return;
 		}
 
-		this.doTransition(transition.implementation, ...args);
+		this.doTransition(target.implementation, ...args);
 	}
 
 	public reset() {
@@ -57,26 +61,26 @@ export class StateMachine {
 	}
 
 	protected doTransition(implementation: TransitionFunction, ...args: any[]) {
-		this._possibleTransitions.forEach(
+		this.possibleTransitions.forEach(
 			(_) => _.onConditionsUnmet(this),
 		);
 
-		this._state = implementation(this, ...args);
-		this._possibleTransitions = this.possibleTransitions();
+		this.currentState = implementation(this, ...args);
+		this.possibleTransitions = this.getPossibleTransitions();
 
-		this._possibleTransitions.forEach(
+		this.possibleTransitions.forEach(
 			(_) => _.onConditionsMet(this),
 		);
 	}
 
-	private possibleTransitions(): Transition[] {
+	private getPossibleTransitions(): Transition[] {
 		return this.transitions.filter(
-			(_) => _.state === this._state,
+			(_) => _.state === this.state,
 		);
 	}
 
 	private findTransition(signal?: Signal): Transition {
-		return this.possibleTransitions().find(
+		return this.getPossibleTransitions().find(
 			(_) => _.signal === signal,
 		);
 	}

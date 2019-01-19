@@ -21,16 +21,16 @@ export const UPDATE = "update";
 export const UNMOUNT = "unmount";
 export const CATCH = "catch";
 
-export interface AutomatonDecoratorParams {
+export interface IAutomatonDecoratorParams {
 	catching?: boolean;
 }
 
-interface ReactEventHandlers {
+interface IReactEventHandlers {
 	[signal: string]: React.EventHandler<any>;
 }
 
 export class ReactStateMachine extends StateMachine {
-	private handlers: ReactEventHandlers = {};
+	private handlers: IReactEventHandlers = {};
 
 	constructor(private component: IAutomatonComponent) {
 		super(component.transitions || /* istanbul ignore next */ []);
@@ -56,9 +56,9 @@ export class ReactStateMachine extends StateMachine {
 }
 
 export const withAutomaton = mixinDecoratorFactory<
-	IAutomatonComponent, AutomatonDecoratorParams
+	IAutomatonComponent, IAutomatonDecoratorParams
 >({
-	onPatch<MixinBase, ResultType>(baseClass: MixinBase, params: AutomatonDecoratorParams): void {
+	onPatch<MixinBase, ResultType>(baseClass: MixinBase, params: IAutomatonDecoratorParams): void {
 		const {
 			catching,
 		} = params;
@@ -89,9 +89,9 @@ export const withAutomaton = mixinDecoratorFactory<
 		);
 	},
 
-	onConstruct(_this: IAutomatonComponent): void {
-		_this.automaton = new ReactStateMachine(_this);
-		_this.automaton.transition(CREATE, _this);
+	onConstruct(self: IAutomatonComponent): void {
+		self.automaton = new ReactStateMachine(self);
+		self.automaton.transition(CREATE, self);
 	},
 });
 

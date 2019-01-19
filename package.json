@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --coverage",
     "build": "tsc && rollup --config rollup.config.js",
-    "lint": "tslint -c tslint.json 'src/**/*.ts'"
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "fix": "npm run lint -- --fix"
   },
   "keywords": [
     "side-effect",

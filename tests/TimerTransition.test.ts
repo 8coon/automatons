@@ -1,5 +1,5 @@
-import {INITIAL, StateMachine, transition} from "../src/StateMachine";
-import {timer} from "../src/TimerTransition";
+import {INITIAL, StateMachine, transition} from "../src/classes/StateMachine";
+import {timer} from "../src/classes/TimerTransition";
 
 const STATE_A = 0;
 const STATE_B = 1;

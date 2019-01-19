@@ -2,19 +2,19 @@ import * as React from "react";
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import {asSignal, automatonOf, CATCH, CREATE, MOUNT, UNMOUNT, UPDATE, withAutomaton} from "../src/ReactBinding";
+import {asSignal, automatonOf, CATCH, CREATE, MOUNT, UNMOUNT, UPDATE, withAutomaton} from "../src/classes/ReactBinding";
 
 import {
 	INITIAL, State, Transition,
 	transition,
-} from "../src/StateMachine";
+} from "../src/classes/StateMachine";
 
 import {timer} from "../src";
 
 Enzyme.configure({adapter: new Adapter()});
 
 interface SignalsType {
-	[key: number]: string;
+	[key: string]: string;
 }
 
 const Signals: SignalsType = {

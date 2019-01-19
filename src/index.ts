@@ -1,11 +1,11 @@
 export {
 	INITIAL,
 	transition,
-} from "./StateMachine";
+} from "./classes/StateMachine";
 
 export {
-	timer
-} from "./TimerTransition";
+	timer,
+} from "./classes/TimerTransition";
 
 export {
 	CATCH,
@@ -16,4 +16,4 @@ export {
 	withAutomaton,
 	automatonOf,
 	asSignal,
-} from "../src/ReactBinding";
+} from "./classes/ReactBinding";

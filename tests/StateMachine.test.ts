@@ -2,7 +2,7 @@ import {
 	INITIAL, Signal, State,
 	StateMachine, Transition,
 	transition, TransitionFunction,
-} from "../src/StateMachine";
+} from "../src/classes/StateMachine";
 
 const STATE_A = 0;
 const STATE_B = 1;

@@ -7,11 +7,11 @@ interface MixinDecoratorCallbacks<MixinInterface, MixinParameters> {
 }
 
 export function mixinDecoratorFactory<MixinInterface, MixinParameters>(
-	callbacks: MixinDecoratorCallbacks<MixinInterface, MixinParameters>
+	callbacks: MixinDecoratorCallbacks<MixinInterface, MixinParameters>,
 ) {
 	const decoratorFactory = function(mixinParams: MixinParameters | any): any {
 		// When used without parameters
-		if (typeof mixinParams === 'function') {
+		if (typeof mixinParams === "function") {
 			return decoratorFactory({})(mixinParams);
 		}
 
@@ -32,7 +32,7 @@ export function mixinDecoratorFactory<MixinInterface, MixinParameters>(
 			callbacks.onPatch<MixinBase, ResultType>(Result, mixinParams);
 
 			return Result;
-		}
+		};
 	};
 
 	return decoratorFactory;

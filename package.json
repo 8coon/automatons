@@ -8,7 +8,8 @@
     "build": "rm -rf lib/ && tsc && rollup --config rollup.config.js",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "fix": "npm run lint -- --fix",
-    "docs": "typedoc --out docs/ --mode file src/"
+    "docs": "typedoc --out docs/ --mode file src/",
+    "prepublishOnly": "npm run lint && npm run build && npm test"
   },
   "keywords": [
     "side-effect",

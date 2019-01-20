@@ -6,14 +6,14 @@ your logic clear by describing it formally in terms of
 [automata theory](https://en.wikipedia.org/wiki/Automata_theory).
 
 ## Contents
-1. [The Why](#The Why)
+1. [The Why](#The-Why)
 2. [Installation](#Installation)
-3. [Getting Started](#Getting Started)
-   * 3.1. [Basic Usage](#Basic Usage)
-   * 3.2. [React Binding](#React Binding)
+3. [Getting Started](#Getting-Started)
+   * 3.1. [Basic Usage](#Basic-Usage)
+   * 3.2. [React Binding](#React-Binding)
    * 3.3. [Timers](#Timers)
-   * 3.4. [Advanced Side Effects](#Advanced Side Effects)
-4. [API Documentation](#API Documentation)
+   * 3.4. [Advanced Side Effects](#Advanced-Side-Effects)
+4. [API Documentation](#API-Documentation)
 5. [Contributing](#Contributing)
 
 ## The Why

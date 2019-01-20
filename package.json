@@ -25,6 +25,7 @@
     "dist",
     "lib"
   ],
+  "types": "lib/index.d.ts",
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",

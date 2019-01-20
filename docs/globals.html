@@ -72,6 +72,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class"><a href="classes/automaton.html" class="tsd-kind-icon">Automaton</a></li>
 								<li class="tsd-kind-class"><a href="classes/reactautomaton.html" class="tsd-kind-icon">React<wbr>Automaton</a></li>
+								<li class="tsd-kind-class tsd-is-not-exported"><a href="classes/sideeffect.html" class="tsd-kind-icon">Side<wbr>Effect</a></li>
 								<li class="tsd-kind-class tsd-is-not-exported"><a href="classes/timertransition.html" class="tsd-kind-icon">Timer<wbr>Transition</a></li>
 								<li class="tsd-kind-class"><a href="classes/transition.html" class="tsd-kind-icon">Transition</a></li>
 							</ul>
@@ -85,6 +86,7 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-is-not-exported"><a href="globals.html#sideeffectimplementation" class="tsd-kind-icon">Side<wbr>Effect<wbr>Implementation</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#signal" class="tsd-kind-icon">Signal</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#state" class="tsd-kind-icon">State</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#transitionfunction" class="tsd-kind-icon">Transition<wbr>Function</a></li>
@@ -109,6 +111,7 @@
 								<li class="tsd-kind-function"><a href="globals.html#assignal" class="tsd-kind-icon">as<wbr>Signal</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#automaton" class="tsd-kind-icon">automaton</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#automatonof" class="tsd-kind-icon">automaton<wbr>Of</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#sideeffect" class="tsd-kind-icon">side<wbr>Effect</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#timer" class="tsd-kind-icon">timer</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#transition" class="tsd-kind-icon">transition</a></li>
 							</ul>
@@ -118,13 +121,49 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-is-not-exported">
+					<a name="sideeffectimplementation" class="tsd-anchor"></a>
+					<h3>Side<wbr>Effect<wbr>Implementation</h3>
+					<div class="tsd-signature tsd-kind-icon">Side<wbr>Effect<wbr>Implementation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/SideEffect.ts#L6">classes/SideEffect.ts:6</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Side effect implementation function.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="signal" class="tsd-anchor"></a>
 					<h3>Signal</h3>
 					<div class="tsd-signature tsd-kind-icon">Signal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/Automaton.ts#L10">classes/Automaton.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/Automaton.ts#L10">classes/Automaton.ts:10</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -139,7 +178,7 @@
 					<div class="tsd-signature tsd-kind-icon">State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/Automaton.ts#L5">classes/Automaton.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/Automaton.ts#L5">classes/Automaton.ts:5</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -154,7 +193,7 @@
 					<div class="tsd-signature tsd-kind-icon">Transition<wbr>Function<span class="tsd-signature-symbol">:</span> <a href="globals.html#state" class="tsd-signature-type">State</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/Automaton.ts#L15">classes/Automaton.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/Automaton.ts#L15">classes/Automaton.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -169,7 +208,7 @@
 					<div class="tsd-signature tsd-kind-icon">Transitions<span class="tsd-signature-symbol">:</span> <a href="classes/transition.html" class="tsd-signature-type">Transition</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/Automaton.ts#L20">classes/Automaton.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/Automaton.ts#L20">classes/Automaton.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -187,7 +226,7 @@
 					<div class="tsd-signature tsd-kind-icon">CATCH<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"catch"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;catch&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/ReactBinding.ts#L50">classes/ReactBinding.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/ReactBinding.ts#L50">classes/ReactBinding.ts:50</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -210,7 +249,7 @@
 					<div class="tsd-signature tsd-kind-icon">CREATE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"create"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;create&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/ReactBinding.ts#L25">classes/ReactBinding.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/ReactBinding.ts#L25">classes/ReactBinding.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -230,7 +269,7 @@
 					<div class="tsd-signature tsd-kind-icon">INITIAL<span class="tsd-signature-symbol">:</span> <a href="globals.html#state" class="tsd-signature-type">State</a><span class="tsd-signature-symbol"> =&nbsp;&quot;initial&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/Automaton.ts#L25">classes/Automaton.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/Automaton.ts#L25">classes/Automaton.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -245,7 +284,7 @@
 					<div class="tsd-signature tsd-kind-icon">MOUNT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"mount"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;mount&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/ReactBinding.ts#L31">classes/ReactBinding.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/ReactBinding.ts#L31">classes/ReactBinding.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -265,7 +304,7 @@
 					<div class="tsd-signature tsd-kind-icon">UNMOUNT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"unmount"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;unmount&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/ReactBinding.ts#L43">classes/ReactBinding.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/ReactBinding.ts#L43">classes/ReactBinding.ts:43</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -285,7 +324,7 @@
 					<div class="tsd-signature tsd-kind-icon">UPDATE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"update"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;update&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/ReactBinding.ts#L37">classes/ReactBinding.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/ReactBinding.ts#L37">classes/ReactBinding.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -305,7 +344,7 @@
 					<div class="tsd-signature tsd-kind-icon">with<wbr>Automaton<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">decoratorFactory</span><span class="tsd-signature-symbol"> =&nbsp;mixinDecoratorFactory&lt;IAutomatonComponent, IAutomatonDecoratorParams&gt;(withAutomationCallbacks)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/ReactBinding.ts#L177">classes/ReactBinding.ts:177</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/ReactBinding.ts#L215">classes/ReactBinding.ts:215</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -340,7 +379,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/ReactBinding.ts#L225">classes/ReactBinding.ts:225</a></li>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/ReactBinding.ts#L263">classes/ReactBinding.ts:263</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -389,7 +428,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/Automaton.ts#L205">classes/Automaton.ts:205</a></li>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/Automaton.ts#L209">classes/Automaton.ts:209</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -437,7 +476,7 @@ stateMachine.state === <span class="hljs-string">'ready'</span>;</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/ReactBinding.ts#L199">classes/ReactBinding.ts:199</a></li>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/ReactBinding.ts#L237">classes/ReactBinding.ts:237</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -469,6 +508,64 @@ stateMachine.state === <span class="hljs-string">'ready'</span>;</code></pre>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="sideeffect" class="tsd-anchor"></a>
+					<h3>side<wbr>Effect</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">side<wbr>Effect<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="globals.html#state" class="tsd-signature-type">State</a>, implementation<span class="tsd-signature-symbol">: </span><a href="globals.html#sideeffectimplementation" class="tsd-signature-type">SideEffectImplementation</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/sideeffect.html" class="tsd-signature-type">SideEffect</a></li>
+						<li class="tsd-signature tsd-kind-icon">side<wbr>Effect<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="globals.html#state" class="tsd-signature-type">State</a>, signal<span class="tsd-signature-symbol">: </span><a href="globals.html#signal" class="tsd-signature-type">Signal</a>, implementation<span class="tsd-signature-symbol">: </span><a href="globals.html#sideeffectimplementation" class="tsd-signature-type">SideEffectImplementation</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/sideeffect.html" class="tsd-signature-type">SideEffect</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/SideEffect.ts#L30">classes/SideEffect.ts:30</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a <a href="classes/sideeffect.html">SideEffect</a> that is an empty transition returning the previous state.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>state: <a href="globals.html#state" class="tsd-signature-type">State</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>target state</p>
+									</div>
+								</li>
+								<li>
+									<h5>implementation: <a href="globals.html#sideeffectimplementation" class="tsd-signature-type">SideEffectImplementation</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>side effect function</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="classes/sideeffect.html" class="tsd-signature-type">SideEffect</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/SideEffect.ts#L31">classes/SideEffect.ts:31</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>state: <a href="globals.html#state" class="tsd-signature-type">State</a></h5>
+								</li>
+								<li>
+									<h5>signal: <a href="globals.html#signal" class="tsd-signature-type">Signal</a></h5>
+								</li>
+								<li>
+									<h5>implementation: <a href="globals.html#sideeffectimplementation" class="tsd-signature-type">SideEffectImplementation</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="classes/sideeffect.html" class="tsd-signature-type">SideEffect</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="timer" class="tsd-anchor"></a>
 					<h3>timer</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -478,7 +575,7 @@ stateMachine.state === <span class="hljs-string">'ready'</span>;</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/TimerTransition.ts#L72">classes/TimerTransition.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/TimerTransition.ts#L72">classes/TimerTransition.ts:72</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -531,7 +628,7 @@ stateMachine.state === INITIAL;</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/Automaton.ts#L36">classes/Automaton.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/Automaton.ts#L36">classes/Automaton.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -557,7 +654,7 @@ stateMachine.state === INITIAL;</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/Automaton.ts#L37">classes/Automaton.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/Automaton.ts#L37">classes/Automaton.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -595,6 +692,9 @@ stateMachine.state === INITIAL;</code></pre>
 						<a href="classes/reactautomaton.html" class="tsd-kind-icon">React<wbr>Automaton</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/sideeffect.html" class="tsd-kind-icon">Side<wbr>Effect</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="classes/timertransition.html" class="tsd-kind-icon">Timer<wbr>Transition</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -602,6 +702,9 @@ stateMachine.state === INITIAL;</code></pre>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iautomatondecoratorparams.html" class="tsd-kind-icon">IAutomaton<wbr>Decorator<wbr>Params</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-is-not-exported">
+						<a href="globals.html#sideeffectimplementation" class="tsd-kind-icon">Side<wbr>Effect<wbr>Implementation</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#signal" class="tsd-kind-icon">Signal</a>
@@ -644,6 +747,9 @@ stateMachine.state === INITIAL;</code></pre>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#automatonof" class="tsd-kind-icon">automaton<wbr>Of</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#sideeffect" class="tsd-kind-icon">side<wbr>Effect</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#timer" class="tsd-kind-icon">timer</a>

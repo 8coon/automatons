@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TimerTransition | automatons</title>
+	<title>SideEffect | automatons</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="timertransition.html">TimerTransition</a>
+					<a href="sideeffect.html">SideEffect</a>
 				</li>
 			</ul>
-			<h1>Class TimerTransition</h1>
+			<h1>Class SideEffect</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A class that implements a time-based transition.</p>
+						<p>Class that represents a special side effect transition.</p>
 					</div>
 				</div>
 			</section>
@@ -80,7 +80,7 @@
 						<a href="transition.html" class="tsd-signature-type">Transition</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">TimerTransition</span>
+								<span class="target">SideEffect</span>
 							</li>
 						</ul>
 					</li>
@@ -93,26 +93,22 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported"><a href="timertransition.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported"><a href="sideeffect.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-not-exported">
+						<section class="tsd-index-section tsd-is-inherited tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="timertransition.html#implementation" class="tsd-kind-icon">implementation</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported"><a href="timertransition.html#ms" class="tsd-kind-icon">ms</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="timertransition.html#signal" class="tsd-kind-icon">signal</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="timertransition.html#state" class="tsd-kind-icon">state</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported"><a href="timertransition.html#timer" class="tsd-kind-icon">timer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="sideeffect.html#implementation" class="tsd-kind-icon">implementation</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="sideeffect.html#signal" class="tsd-kind-icon">signal</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="sideeffect.html#state" class="tsd-kind-icon">state</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-not-exported">
+						<section class="tsd-index-section tsd-is-inherited tsd-is-not-exported">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-not-exported"><a href="timertransition.html#handletimer" class="tsd-kind-icon">handle<wbr>Timer</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported"><a href="timertransition.html#onconditionsmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Met</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported"><a href="timertransition.html#onconditionsunmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Unmet</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="timertransition.html#signal-1" class="tsd-kind-icon">signal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="sideeffect.html#onconditionsmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Met</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="sideeffect.html#onconditionsunmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Unmet</a></li>
 							</ul>
 						</section>
 					</div>
@@ -124,14 +120,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Timer<wbr>Transition<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../globals.html#state" class="tsd-signature-type">State</a>, implementation<span class="tsd-signature-symbol">: </span><a href="../globals.html#transitionfunction" class="tsd-signature-type">TransitionFunction</a>, ms<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="timertransition.html" class="tsd-signature-type">TimerTransition</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Side<wbr>Effect<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../globals.html#state" class="tsd-signature-type">State</a>, signal<span class="tsd-signature-symbol">: </span><a href="../globals.html#signal" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span>, implementation<span class="tsd-signature-symbol">: </span><a href="../globals.html#sideeffectimplementation" class="tsd-signature-type">SideEffectImplementation</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="sideeffect.html" class="tsd-signature-type">SideEffect</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="transition.html">Transition</a>.<a href="transition.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/TimerTransition.ts#L26">classes/TimerTransition.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/SideEffect.ts#L11">classes/SideEffect.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -140,18 +136,18 @@
 									<h5>state: <a href="../globals.html#state" class="tsd-signature-type">State</a></h5>
 								</li>
 								<li>
-									<h5>implementation: <a href="../globals.html#transitionfunction" class="tsd-signature-type">TransitionFunction</a></h5>
+									<h5>signal: <a href="../globals.html#signal" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 								</li>
 								<li>
-									<h5>ms: <span class="tsd-signature-type">number</span></h5>
+									<h5>implementation: <a href="../globals.html#sideeffectimplementation" class="tsd-signature-type">SideEffectImplementation</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="timertransition.html" class="tsd-signature-type">TimerTransition</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="sideeffect.html" class="tsd-signature-type">SideEffect</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
 					<a name="implementation" class="tsd-anchor"></a>
@@ -168,16 +164,6 @@
 							<p>the next state or a function that returns one</p>
 						</div>
 					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported">
-					<a name="ms" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> ms</h3>
-					<div class="tsd-signature tsd-kind-icon">ms<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/TimerTransition.ts#L31">classes/TimerTransition.ts:31</a></li>
-						</ul>
-					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
 					<a name="signal" class="tsd-anchor"></a>
@@ -211,123 +197,66 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported">
-					<a name="timer" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> timer</h3>
-					<div class="tsd-signature tsd-kind-icon">timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/TimerTransition.ts#L26">classes/TimerTransition.ts:26</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Result of <code>setTimeout</code></p>
-						</div>
-					</div>
-				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-not-exported">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-not-exported">
-					<a name="handletimer" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> handle<wbr>Timer</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">handle<wbr>Timer<span class="tsd-signature-symbol">(</span>stateMachine<span class="tsd-signature-symbol">: </span><a href="automaton.html" class="tsd-signature-type">Automaton</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/TimerTransition.ts#L46">classes/TimerTransition.ts:46</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>stateMachine: <a href="automaton.html" class="tsd-signature-type">Automaton</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
 					<a name="onconditionsmet" class="tsd-anchor"></a>
 					<h3>on<wbr>Conditions<wbr>Met</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
 						<li class="tsd-signature tsd-kind-icon">on<wbr>Conditions<wbr>Met<span class="tsd-signature-symbol">(</span>stateMachine<span class="tsd-signature-symbol">: </span><a href="automaton.html" class="tsd-signature-type">Automaton</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="transition.html">Transition</a>.<a href="transition.html#onconditionsmet">onConditionsMet</a></p>
+								<p>Inherited from <a href="transition.html">Transition</a>.<a href="transition.html#onconditionsmet">onConditionsMet</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/TimerTransition.ts#L36">classes/TimerTransition.ts:36</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>stateMachine: <a href="automaton.html" class="tsd-signature-type">Automaton</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported">
-					<a name="onconditionsunmet" class="tsd-anchor"></a>
-					<h3>on<wbr>Conditions<wbr>Unmet</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Conditions<wbr>Unmet<span class="tsd-signature-symbol">(</span>stateMachine<span class="tsd-signature-symbol">: </span><a href="automaton.html" class="tsd-signature-type">Automaton</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="transition.html">Transition</a>.<a href="transition.html#onconditionsunmet">onConditionsUnmet</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/TimerTransition.ts#L41">classes/TimerTransition.ts:41</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>stateMachine: <a href="automaton.html" class="tsd-signature-type">Automaton</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-					<a name="signal-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> signal</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">signal<span class="tsd-signature-symbol">(</span>ms<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#signal" class="tsd-signature-type">Signal</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/TimerTransition.ts#L19">classes/TimerTransition.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/Automaton.ts#L69">classes/Automaton.ts:69</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns <a href="../globals.html#signal">Signal</a> that is triggered when the corresponding timer fires.</p>
+									<p>This lifecycle method is triggered when all conditions are met to perform a transition.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>ms: <span class="tsd-signature-type">number</span></h5>
+									<h5>stateMachine: <a href="automaton.html" class="tsd-signature-type">Automaton</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>timer value in milliseconds</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../globals.html#signal" class="tsd-signature-type">Signal</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
+					<a name="onconditionsunmet" class="tsd-anchor"></a>
+					<h3>on<wbr>Conditions<wbr>Unmet</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Conditions<wbr>Unmet<span class="tsd-signature-symbol">(</span>stateMachine<span class="tsd-signature-symbol">: </span><a href="automaton.html" class="tsd-signature-type">Automaton</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="transition.html">Transition</a>.<a href="transition.html#onconditionsunmet">onConditionsUnmet</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/Automaton.ts#L76">classes/Automaton.ts:76</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>This lifecycle method is triggered when conditions to perform a transition are no longer met</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>stateMachine: <a href="automaton.html" class="tsd-signature-type">Automaton</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -349,48 +278,36 @@
 					<li class=" tsd-kind-class">
 						<a href="reactautomaton.html" class="tsd-kind-icon">React<wbr>Automaton</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
-						<a href="sideeffect.html" class="tsd-kind-icon">Side<wbr>Effect</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-is-not-exported">
-						<a href="timertransition.html" class="tsd-kind-icon">Timer<wbr>Transition</a>
+						<a href="sideeffect.html" class="tsd-kind-icon">Side<wbr>Effect</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported">
-								<a href="timertransition.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="sideeffect.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
-								<a href="timertransition.html#implementation" class="tsd-kind-icon">implementation</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported">
-								<a href="timertransition.html#ms" class="tsd-kind-icon">ms</a>
+								<a href="sideeffect.html#implementation" class="tsd-kind-icon">implementation</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
-								<a href="timertransition.html#signal" class="tsd-kind-icon">signal</a>
+								<a href="sideeffect.html#signal" class="tsd-kind-icon">signal</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
-								<a href="timertransition.html#state" class="tsd-kind-icon">state</a>
+								<a href="sideeffect.html#state" class="tsd-kind-icon">state</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported">
-								<a href="timertransition.html#timer" class="tsd-kind-icon">timer</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
+								<a href="sideeffect.html#onconditionsmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Met</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-not-exported">
-								<a href="timertransition.html#handletimer" class="tsd-kind-icon">handle<wbr>Timer</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported">
-								<a href="timertransition.html#onconditionsmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Met</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported">
-								<a href="timertransition.html#onconditionsunmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Unmet</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-								<a href="timertransition.html#signal-1" class="tsd-kind-icon">signal</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
+								<a href="sideeffect.html#onconditionsunmet" class="tsd-kind-icon">on<wbr>Conditions<wbr>Unmet</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="timertransition.html" class="tsd-kind-icon">Timer<wbr>Transition</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="transition.html" class="tsd-kind-icon">Transition</a>
 					</li>

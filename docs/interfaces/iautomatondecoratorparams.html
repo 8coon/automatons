@@ -89,6 +89,7 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iautomatondecoratorparams.html#catching" class="tsd-kind-icon">catching</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iautomatondecoratorparams.html#maptostate" class="tsd-kind-icon">map<wbr>ToState</a></li>
 							</ul>
 						</section>
 					</div>
@@ -102,13 +103,29 @@
 					<div class="tsd-signature tsd-kind-icon">catching<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/8coon/automatons/blob/0cb735e/src/classes/ReactBinding.ts#L60">classes/ReactBinding.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/ReactBinding.ts#L60">classes/ReactBinding.ts:60</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Determines whether or not <a href="../globals.html#withautomaton">withAutomaton</a> should provide <code>componentDidCatch</code>
 							lifecycle method.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="maptostate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> map<wbr>ToState</h3>
+					<div class="tsd-signature tsd-kind-icon">map<wbr>ToState<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/8coon/automatons/blob/8b45bc6/src/classes/ReactBinding.ts#L66">classes/ReactBinding.ts:66</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If set to a string, <a href="../globals.html#withautomaton">withAutomaton</a> will call setState on every transition and
+							set state[mapToState] to the current <a href="../globals.html#state">State</a> value</p>
 						</div>
 					</div>
 				</section>
@@ -131,6 +148,9 @@
 						<a href="../classes/reactautomaton.html" class="tsd-kind-icon">React<wbr>Automaton</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="../classes/sideeffect.html" class="tsd-kind-icon">Side<wbr>Effect</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="../classes/timertransition.html" class="tsd-kind-icon">Timer<wbr>Transition</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -144,10 +164,16 @@
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="iautomatondecoratorparams.html#catching" class="tsd-kind-icon">catching</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iautomatondecoratorparams.html#maptostate" class="tsd-kind-icon">map<wbr>ToState</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-type-alias tsd-is-not-exported">
+						<a href="../globals.html#sideeffectimplementation" class="tsd-kind-icon">Side<wbr>Effect<wbr>Implementation</a>
+					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#signal" class="tsd-kind-icon">Signal</a>
 					</li>
@@ -189,6 +215,9 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#automatonof" class="tsd-kind-icon">automaton<wbr>Of</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#sideeffect" class="tsd-kind-icon">side<wbr>Effect</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#timer" class="tsd-kind-icon">timer</a>

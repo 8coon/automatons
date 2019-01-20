@@ -28,7 +28,7 @@ describe('TimerTransition', () => {
 	it('works with cancellation', async () => {
 		const stateMachine = new Automaton([
 			transition(INITIAL, () => STATE_A),
-			timer(STATE_A, 10, () => STATE_B),
+			timer(STATE_A, 20, () => STATE_B),
 			transition(STATE_A, SIGNAL_HIGH, () => INITIAL),
 		]);
 

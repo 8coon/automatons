@@ -27,9 +27,9 @@ formally as a series of states, transitions and side effects.
 ## Installation
 * Installation: `npm i automatons`
 * CDN:
-   * AMD module: [https://unpkg.com/automatons@0.0.2/dist/automatons.amd.js](https://unpkg.com/automatons@0.0.2/dist/automatons.amd.js)
-   * CommonJS module: [https://unpkg.com/automatons@0.0.2/dist/automatons.cjs.js](https://unpkg.com/automatons@0.0.2/dist/automatons.cjs.js)
-   * EcmaScript module: [https://unpkg.com/automatons@0.0.2/dist/automatons.esm.js](https://unpkg.com/automatons@0.0.2/dist/automatons.esm.js)
+   * AMD module: [https://unpkg.com/automatons@0.0.3/dist/automatons.amd.js](https://unpkg.com/automatons@0.0.2/dist/automatons.amd.js)
+   * CommonJS module: [https://unpkg.com/automatons@0.0.3/dist/automatons.cjs.js](https://unpkg.com/automatons@0.0.2/dist/automatons.cjs.js)
+   * EcmaScript module: [https://unpkg.com/automatons@0.0.3/dist/automatons.esm.js](https://unpkg.com/automatons@0.0.2/dist/automatons.esm.js)
 
 ## Getting Started
 A state machine is an abstract mechanism that is capable of remembering

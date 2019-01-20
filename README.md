@@ -36,7 +36,7 @@ A state machine is an abstract mechanism that is capable of remembering
 it's current state and changing it according to a pre-determined set
 of rules.
 
-*Automatons* library provides a function to construct a state machine:
+*Automatons* library provides a function to construct such state machines:
 
 ```javascript
 import {automaton} from "automatons";
@@ -55,14 +55,14 @@ A state machine can be defined by three components:
  * a list of rules to change the remembered state;
  * an initial state.
 
-All *Automaton* state machines start in a special `INITIAL` state, reference
+All *Automatons* state machines start in a special `INITIAL` state, reference
 to which is provided by the library:
 
 ```javascript
 import {INITIAL} from "automatons";
 ```
 
-Transitions is *Automaton* library are triggered by external events
+Transitions is *Automatons* library are triggered by external events
 called *signals* and are described by `transition` function:
 
 ```javascript
@@ -92,7 +92,7 @@ console.log(stateMachine.state); // INITIAL
 (See [02: React Binding](https://codesandbox.io/s/4r6188vp2w)
 on [codesandbox.io](https://codesandbox.io))
 
-*Automaton* library provides bindings to React to make possible the usage
+*Automatons* library provides bindings to React to make possible the usage
 of state machines in view layer logic.
 
 You can add a state machine to any React component by applying a
@@ -109,7 +109,7 @@ class Button extends React.Component {
 }
 ```
 
-*Automaton* supports automatic state mapping and automatic component updates
+*Automatons* supports automatic state mapping and automatic component updates
 with the help of `mapToState` parameter:
 
 ```javascript

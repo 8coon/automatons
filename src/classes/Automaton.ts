@@ -113,13 +113,17 @@ export class Automaton {
 	 * @param args - custom arguments passed to the transition function
 	 */
 	public transition(signal: Signal, ...args: any[]) {
-		const target = this.findTransition(signal) || this.findTransition();
+		const transitions = this.findTransitions(signal);
+		const prevState = this.state;
 
-		if (!target) {
-			return;
+		for (const target of transitions) {
+			this.doTransition(target.implementation, ...args);
+
+			// The first transition to change state is the last one
+			if (prevState !== this.state) {
+				return;
+			}
 		}
-
-		this.doTransition(target.implementation, ...args);
 	}
 
 	/**
@@ -169,9 +173,9 @@ export class Automaton {
 	 *
 	 * @param signal
 	 */
-	private findTransition(signal?: Signal): Transition {
-		return this.getPossibleTransitions().find(
-			(_) => _.signal === signal,
+	private findTransitions(signal?: Signal): Transition[] {
+		return this.getPossibleTransitions().filter(
+			(_) => (_.signal === signal || _.signal === void 0),
 		);
 	}
 }

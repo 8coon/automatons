@@ -114,4 +114,35 @@ describe('Automaton', () => {
 		expect(log).toEqual(['called']);
 	});
 
+	it('runs multiple transitions until the first one actually changes the state', () => {
+		const log: string[] = [];
+
+		const stateMachine = automaton([
+			transition(INITIAL, () => {
+				log.push('transition');
+				return INITIAL;
+			}),
+			transition(INITIAL, SIGNAL_LOW, () => {
+				log.push('low');
+				return INITIAL;
+			}),
+			transition(INITIAL, SIGNAL_HIGH, () => {
+				log.push('high');
+				return INITIAL;
+			}),
+			transition(INITIAL, SIGNAL_HIGH, () => {
+				log.push('change');
+				return 'first';
+			}),
+		]);
+
+		stateMachine.transition(SIGNAL_LOW);
+		stateMachine.transition(SIGNAL_HIGH);
+		stateMachine.transition(SIGNAL_LOW);
+
+		expect(log).toEqual([
+			'transition', 'low', 'transition', 'high', 'change',
+		]);
+	});
+
 });

@@ -58,6 +58,12 @@ export interface IAutomatonDecoratorParams {
 	 * lifecycle method.
 	 */
 	catching?: boolean;
+
+	/**
+	 * If set to a string, [[withAutomaton]] will call setState on every transition and
+	 * set state[mapToState] to the current [[State]] value
+	 */
+	mapToState?: string;
 }
 
 /**
@@ -74,6 +80,7 @@ interface IReactEventHandlers {
  * the first argument.
  */
 export class ReactAutomaton extends Automaton {
+	public mapToState: string;
 	private handlers: IReactEventHandlers = {};
 
 	constructor(private component: IAutomatonComponent) {
@@ -95,6 +102,26 @@ export class ReactAutomaton extends Automaton {
 		}
 
 		return this.handlers[key];
+	}
+
+	/**
+	 * Performs a transition and calls setState if mapToState is enabled.
+	 *
+	 * @param signal
+	 * @param args
+	 */
+	public transition(signal: Signal, ...args: any[]) {
+		super.transition(signal, ...args);
+
+		if (typeof this.mapToState !== "string") {
+			return;
+		}
+
+		if (this.component.state[this.mapToState] !== this.state) {
+			this.component.setState({
+				[this.mapToState]: this.state,
+			});
+		}
 	}
 
 	/**
@@ -149,9 +176,20 @@ const withAutomationCallbacks = {
 		);
 	},
 
-	onConstruct(self: IAutomatonComponent): void {
+	onConstruct(self: IAutomatonComponent, params: IAutomatonDecoratorParams): void {
 		self.automaton = new ReactAutomaton(self);
 		self.automaton.transition(CREATE, self);
+
+		if (typeof params.mapToState === "string") {
+			if (!self.state) {
+				self.state = {};
+			}
+
+			// Dirty hack as we're still in constructor
+			(self.state as any)[params.mapToState] = self.automaton.state;
+
+			(self.automaton as ReactAutomaton).mapToState = params.mapToState;
+		}
 	},
 };
 

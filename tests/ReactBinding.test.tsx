@@ -6,7 +6,7 @@ import {
 	asSignal,
 	automatonOf,
 	CATCH,
-	CREATE,
+	CREATE, IAutomatonDecoratorParams,
 	MOUNT,
 	UNMOUNT,
 	UPDATE,
@@ -38,9 +38,9 @@ function createTestComponent(
 	transitions: Transition[],
 	initial: State,
 	log: string[],
-	catching = false,
+	{catching, mapToState}: IAutomatonDecoratorParams = {},
 ): any {
-	return (catching ? withAutomaton({catching}) : withAutomaton)(
+	return ((catching || mapToState) ? withAutomaton({catching, mapToState}) : withAutomaton)(
 		class extends React.Component {
 			transitions = [
 				...transitions,
@@ -129,7 +129,7 @@ describe('ReactBinding', () => {
 			],
 			INITIAL,
 			log,
-			true
+			{catching: true}
 		);
 
 		const Something = (_: any): any => null;
@@ -184,6 +184,26 @@ describe('ReactBinding', () => {
 		expect(log).toEqual([
 			'create', 'mount', 'update', 'originalMount', '_$timer10', 'update', 'click', 'update', 'unmount',
 		]);
+	});
+
+	it('maps to state', () => {
+		const Test = createTestComponent(
+			[
+				transition(INITIAL, CREATE, 'first'),
+				transition('first', 'click', 'second'),
+			],
+			INITIAL,
+			[],
+			{mapToState: 'state'}
+		);
+
+		const component = Enzyme.shallow(<Test/>);
+		expect(component.text()).toBe('first');
+
+		component.simulate('click');
+		expect(component.text()).toBe('second');
+
+		component.unmount();
 	});
 
 });

@@ -9,7 +9,7 @@ type Constructor<T = {}> = new(...args: any[]) => T;
  */
 interface IMixinDecoratorCallbacks<MixinInterface, MixinParameters> {
 	onPatch<MixinBase, ResultType>(baseClass: MixinBase, params: MixinParameters): void;
-	onConstruct(baseClassInstance: any): void;
+	onConstruct(baseClassInstance: any, params: MixinParameters): void;
 }
 
 /**
@@ -33,7 +33,7 @@ export function mixinDecoratorFactory<MixinInterface, MixinParameters>(
 				constructor(...args: any[]) {
 					super(...args);
 
-					callbacks.onConstruct(this as any);
+					callbacks.onConstruct(this as any, mixinParams);
 				}
 
 			} as ResultType;

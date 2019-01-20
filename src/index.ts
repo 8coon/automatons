@@ -11,6 +11,10 @@ export {
 } from "./classes/TimerTransition";
 
 export {
+	sideEffect,
+} from "./classes/SideEffect";
+
+export {
 	CATCH,
 	CREATE,
 	MOUNT,

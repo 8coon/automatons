@@ -1,26 +1,26 @@
 export {
-	INITIAL,
-	transition,
-	automaton,
-	Automaton,
-	Transition,
+    INITIAL,
+    transition,
+    automaton,
+    Automaton,
+    Transition,
 } from "./classes/Automaton";
 
 export {
-	timer,
+    timer,
 } from "./classes/TimerTransition";
 
 export {
-	sideEffect,
+    sideEffect,
 } from "./classes/SideEffect";
 
 export {
-	CATCH,
-	CREATE,
-	MOUNT,
-	UNMOUNT,
-	UPDATE,
-	withAutomaton,
-	automatonOf,
-	asSignal,
+    CATCH,
+    CREATE,
+    MOUNT,
+    UNMOUNT,
+    UPDATE,
+    withAutomaton,
+    automatonOf,
+    asSignal,
 } from "./classes/ReactBinding";

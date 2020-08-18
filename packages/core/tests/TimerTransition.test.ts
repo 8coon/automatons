@@ -8,40 +8,40 @@ const SIGNAL_HIGH = 1;
 
 describe('TimerTransition', () => {
 
-	it('works', async () => {
-		const stateMachine = new Automaton([
-			transition(INITIAL, () => STATE_A),
-			timer(STATE_A, 10, () => STATE_B),
-			transition(STATE_B, SIGNAL_LOW, () => STATE_A),
-		]);
+    it('works', async () => {
+        const stateMachine = new Automaton([
+            transition(INITIAL, () => STATE_A),
+            timer(STATE_A, 10, () => STATE_B),
+            transition(STATE_B, SIGNAL_LOW, () => STATE_A),
+        ]);
 
-		stateMachine.transition(SIGNAL_LOW);
+        stateMachine.transition(SIGNAL_LOW);
 
-		await new Promise(_ => setTimeout(_, 30));
-		expect(stateMachine.state).toBe(STATE_B);
-		stateMachine.transition(SIGNAL_LOW);
-		expect(stateMachine.state).toBe(STATE_A);
-		await new Promise(_ => setTimeout(_, 30));
-		expect(stateMachine.state).toBe(STATE_B);
-	});
+        await new Promise(_ => setTimeout(_, 30));
+        expect(stateMachine.state).toBe(STATE_B);
+        stateMachine.transition(SIGNAL_LOW);
+        expect(stateMachine.state).toBe(STATE_A);
+        await new Promise(_ => setTimeout(_, 30));
+        expect(stateMachine.state).toBe(STATE_B);
+    });
 
-	it('works with cancellation', async () => {
-		const stateMachine = new Automaton([
-			transition(INITIAL, () => STATE_A),
-			timer(STATE_A, 20, () => STATE_B),
-			transition(STATE_A, SIGNAL_HIGH, () => INITIAL),
-		]);
+    it('works with cancellation', async () => {
+        const stateMachine = new Automaton([
+            transition(INITIAL, () => STATE_A),
+            timer(STATE_A, 20, () => STATE_B),
+            transition(STATE_A, SIGNAL_HIGH, () => INITIAL),
+        ]);
 
-		stateMachine.transition(SIGNAL_LOW);
-		expect(stateMachine.state).toBe(STATE_A);
-		stateMachine.transition(SIGNAL_LOW);
-		expect(stateMachine.state).toBe(STATE_A);
-		await new Promise(_ => setTimeout(_, 5));
-		expect(stateMachine.state).toBe(STATE_A);
-		stateMachine.transition(SIGNAL_HIGH);
-		expect(stateMachine.state).toBe(INITIAL);
-		await new Promise(_ => setTimeout(_, 40));
-		expect(stateMachine.state).toBe(INITIAL);
-	});
+        stateMachine.transition(SIGNAL_LOW);
+        expect(stateMachine.state).toBe(STATE_A);
+        stateMachine.transition(SIGNAL_LOW);
+        expect(stateMachine.state).toBe(STATE_A);
+        await new Promise(_ => setTimeout(_, 5));
+        expect(stateMachine.state).toBe(STATE_A);
+        stateMachine.transition(SIGNAL_HIGH);
+        expect(stateMachine.state).toBe(INITIAL);
+        await new Promise(_ => setTimeout(_, 40));
+        expect(stateMachine.state).toBe(INITIAL);
+    });
 
 });

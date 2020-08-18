@@ -1,51 +1,45 @@
-import {
-	State,
-	Automaton,
-	Transition,
-	TransitionFunction,
-	Signal,
-} from "./Automaton";
+import {State, Automaton, Transition, TransitionFunction, Signal,} from "./Automaton";
 
 /**
  * A class that implements a time-based transition.
  */
 class TimerTransition extends Transition {
 
-	/**
-	 * Returns [[Signal]] that is triggered when the corresponding timer fires.
-	 *
-	 * @param ms - timer value in milliseconds
-	 */
-	public static signal(ms: number): Signal {
-		return "_$timer" + ms;
-	}
+    /**
+     * Returns [[Signal]] that is triggered when the corresponding timer fires.
+     *
+     * @param ms - timer value in milliseconds
+     */
+    public static signal(ms: number): Signal {
+        return "_$timer" + ms;
+    }
 
-	/**
-	 * Result of `setTimeout`
-	 */
-	private timer: any;
+    /**
+     * Result of `setTimeout`
+     */
+    private timer: any;
 
-	constructor(
-		state: State,
-		implementation: TransitionFunction,
-		private ms: number,
-	) {
-		super(state, TimerTransition.signal(ms), implementation);
-	}
+    constructor(
+        state: State,
+        implementation: TransitionFunction,
+        private ms: number,
+    ) {
+        super(state, TimerTransition.signal(ms), implementation);
+    }
 
-	public onConditionsMet(stateMachine: Automaton): void {
-		super.onConditionsMet(stateMachine);
-		this.timer = setTimeout(this.handleTimer.bind(this, stateMachine), this.ms);
-	}
+    public onConditionsMet(stateMachine: Automaton): void {
+        super.onConditionsMet(stateMachine);
+        this.timer = setTimeout(this.handleTimer.bind(this, stateMachine), this.ms);
+    }
 
-	public onConditionsUnmet(stateMachine: Automaton): void {
-		super.onConditionsUnmet(stateMachine);
-		clearTimeout(this.timer);
-	}
+    public onConditionsUnmet(stateMachine: Automaton): void {
+        super.onConditionsUnmet(stateMachine);
+        clearTimeout(this.timer);
+    }
 
-	private handleTimer(stateMachine: Automaton) {
-		stateMachine.transition(TimerTransition.signal(this.ms));
-	}
+    private handleTimer(stateMachine: Automaton) {
+        stateMachine.transition(TimerTransition.signal(this.ms));
+    }
 }
 
 /**
@@ -70,9 +64,9 @@ class TimerTransition extends Transition {
  * @param implementation - transition function
  */
 export function timer(state: State, ms: number, implementation: TransitionFunction): Transition {
-	return new TimerTransition(
-		state,
-		implementation,
-		ms,
-	);
+    return new TimerTransition(
+        state,
+        implementation,
+        ms,
+    );
 }

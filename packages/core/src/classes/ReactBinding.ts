@@ -3,19 +3,14 @@ import * as React from "react";
 import {mixinDecoratorFactory} from "../utils/mixinDecoratorFactory";
 import {patchMethod} from "../utils/patchMethod";
 
-import {
-	Signal,
-	Automaton,
-	Transition,
-	TransitionFunction,
-} from "./Automaton";
+import {Signal, Automaton, Transition, TransitionFunction,} from "./Automaton";
 
 /**
  * @ignore
  */
 export interface IAutomatonComponent<P = any, S = any> extends React.Component<P, S> {
-	automaton: Automaton;
-	transitions: Transition[];
+    automaton: Automaton;
+    transitions: Transition[];
 }
 
 /**
@@ -53,24 +48,24 @@ export const CATCH = "catch";
  * Parameters of [[withAutomaton]] decorator.
  */
 export interface IAutomatonDecoratorParams {
-	/**
-	 * Determines whether or not [[withAutomaton]] should provide `componentDidCatch`
-	 * lifecycle method.
-	 */
-	catching?: boolean;
+    /**
+     * Determines whether or not [[withAutomaton]] should provide `componentDidCatch`
+     * lifecycle method.
+     */
+    catching?: boolean;
 
-	/**
-	 * If set to a string, [[withAutomaton]] will call setState on every transition and
-	 * set state[mapToState] to the current [[State]] value
-	 */
-	mapToState?: string;
+    /**
+     * If set to a string, [[withAutomaton]] will call setState on every transition and
+     * set state[mapToState] to the current [[State]] value
+     */
+    mapToState?: string;
 }
 
 /**
  * @ignore
  */
 interface IReactEventHandlers {
-	[signal: string]: React.EventHandler<any>;
+    [signal: string]: React.EventHandler<any>;
 }
 
 /**
@@ -80,117 +75,117 @@ interface IReactEventHandlers {
  * the first argument.
  */
 export class ReactAutomaton extends Automaton {
-	public mapToState: string;
-	private handlers: IReactEventHandlers = {};
+    public mapToState: string;
+    private handlers: IReactEventHandlers = {};
 
-	constructor(private component: IAutomatonComponent) {
-		super(component.transitions || /* istanbul ignore next */ []);
-	}
+    constructor(private component: IAutomatonComponent) {
+        super(component.transitions || /* istanbul ignore next */ []);
+    }
 
-	/**
-	 * This method is used by [[asSignal]] to produce signaling event handlers.
-	 *
-	 * @param signal
-	 */
-	public signal(signal: Signal): React.EventHandler<any> {
-		const key = String(signal);
+    /**
+     * This method is used by [[asSignal]] to produce signaling event handlers.
+     *
+     * @param signal
+     */
+    public signal(signal: Signal): React.EventHandler<any> {
+        const key = String(signal);
 
-		if (!this.handlers[key]) {
-			this.handlers[key] = (event: React.SyntheticEvent) => {
-				this.transition(signal, event);
-			};
-		}
+        if (!this.handlers[key]) {
+            this.handlers[key] = (event: React.SyntheticEvent) => {
+                this.transition(signal, event);
+            };
+        }
 
-		return this.handlers[key];
-	}
+        return this.handlers[key];
+    }
 
-	/**
-	 * Performs a transition and calls setState if mapToState is enabled.
-	 *
-	 * @param signal
-	 * @param args
-	 */
-	public transition(signal: Signal, ...args: any[]) {
-		super.transition(signal, ...args);
+    /**
+     * Performs a transition and calls setState if mapToState is enabled.
+     *
+     * @param signal
+     * @param args
+     */
+    public transition(signal: Signal, ...args: any[]) {
+        super.transition(signal, ...args);
 
-		if (typeof this.mapToState !== "string") {
-			return;
-		}
+        if (typeof this.mapToState !== "string") {
+            return;
+        }
 
-		if (this.component.state[this.mapToState] !== this.state) {
-			this.component.setState({
-				[this.mapToState]: this.state,
-			});
-		}
-	}
+        if (this.component.state[this.mapToState] !== this.state) {
+            this.component.setState({
+                [this.mapToState]: this.state,
+            });
+        }
+    }
 
-	/**
-	 * Calls transition implementation, passing the host component instance.
-	 *
-	 * @param implementation
-	 * @param args
-	 */
-	protected doTransition(implementation: TransitionFunction, ...args: any[]) {
-		if (typeof implementation !== "function") {
-			return super.doTransition(implementation);
-		}
+    /**
+     * Calls transition implementation, passing the host component instance.
+     *
+     * @param implementation
+     * @param args
+     */
+    protected doTransition(implementation: TransitionFunction, ...args: any[]) {
+        if (typeof implementation !== "function") {
+            return super.doTransition(implementation);
+        }
 
-		super.doTransition(
-			() => implementation(this.component, ...args), args,
-		);
-	}
+        super.doTransition(
+            () => implementation(this.component, ...args), args,
+        );
+    }
 }
 
 /**
  * @ignore
  */
 const withAutomationCallbacks = {
-	onPatch<MixinBase, ResultType>(baseClass: MixinBase, params: IAutomatonDecoratorParams): void {
-		const {
-			catching,
-		} = params;
+    onPatch<MixinBase, ResultType>(baseClass: MixinBase, params: IAutomatonDecoratorParams): void {
+        const {
+            catching,
+        } = params;
 
-		patchMethod(baseClass, "componentDidMount",
-			function() {
-				this.automaton.transition(MOUNT);
-			},
-		);
+        patchMethod(baseClass, "componentDidMount",
+            function () {
+                this.automaton.transition(MOUNT);
+            },
+        );
 
-		patchMethod(baseClass, "componentDidUpdate",
-			function(prevProps: any, prevState: any) {
-				this.automaton.transition(UPDATE, prevProps, prevState);
-			},
-		);
+        patchMethod(baseClass, "componentDidUpdate",
+            function (prevProps: any, prevState: any) {
+                this.automaton.transition(UPDATE, prevProps, prevState);
+            },
+        );
 
-		patchMethod(baseClass, "componentWillUnmount",
-			function() {
-				this.automaton.transition(UNMOUNT);
-				this.automaton.reset();
-			},
-		);
+        patchMethod(baseClass, "componentWillUnmount",
+            function () {
+                this.automaton.transition(UNMOUNT);
+                this.automaton.reset();
+            },
+        );
 
-		catching && patchMethod(baseClass, "componentDidCatch",
-			function(error: any, errorInfo: any) {
-				this.automaton.transition(CATCH, error, errorInfo);
-			},
-		);
-	},
+        catching && patchMethod(baseClass, "componentDidCatch",
+            function (error: any, errorInfo: any) {
+                this.automaton.transition(CATCH, error, errorInfo);
+            },
+        );
+    },
 
-	onConstruct(self: IAutomatonComponent, params: IAutomatonDecoratorParams): void {
-		self.automaton = new ReactAutomaton(self);
-		self.automaton.transition(CREATE, self);
+    onConstruct(self: IAutomatonComponent, params: IAutomatonDecoratorParams): void {
+        self.automaton = new ReactAutomaton(self);
+        self.automaton.transition(CREATE, self);
 
-		if (typeof params.mapToState === "string") {
-			if (!self.state) {
-				self.state = {};
-			}
+        if (typeof params.mapToState === "string") {
+            if (!self.state) {
+                self.state = {};
+            }
 
-			// Dirty hack as we're still in constructor
-			(self.state as any)[params.mapToState] = self.automaton.state;
+            // Dirty hack as we're still in constructor
+            (self.state as any)[params.mapToState] = self.automaton.state;
 
-			(self.automaton as ReactAutomaton).mapToState = params.mapToState;
-		}
-	},
+            (self.automaton as ReactAutomaton).mapToState = params.mapToState;
+        }
+    },
 };
 
 /**
@@ -212,9 +207,7 @@ const withAutomationCallbacks = {
  *class Button extends React.Component
  * ```
  */
-export const withAutomaton = mixinDecoratorFactory<
-	IAutomatonComponent, IAutomatonDecoratorParams
->(withAutomationCallbacks);
+export const withAutomaton = mixinDecoratorFactory<IAutomatonComponent, IAutomatonDecoratorParams>(withAutomationCallbacks);
 
 /**
  * Returns the corresponding [[Automaton]] of the provided React component
@@ -235,7 +228,7 @@ export const withAutomaton = mixinDecoratorFactory<
  * @param component - target component
  */
 export function automatonOf(component: React.Component): ReactAutomaton {
-	return (component as any).automaton;
+    return (component as any).automaton;
 }
 
 /**
@@ -261,5 +254,5 @@ export function automatonOf(component: React.Component): ReactAutomaton {
  * @param signal - desired signal
  */
 export function asSignal(component: React.Component, signal: Signal): React.EventHandler<any> {
-	return automatonOf(component).signal(signal);
+    return automatonOf(component).signal(signal);
 }

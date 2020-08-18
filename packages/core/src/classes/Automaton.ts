@@ -1,4 +1,3 @@
-
 /**
  * State type.
  */
@@ -36,13 +35,13 @@ export const INITIAL: State = "initial";
 export function transition(state: State, implementation: TransitionFunction): Transition;
 export function transition(state: State, signal: Signal, implementation: TransitionFunction): Transition;
 export function transition(
-	state: State, signalOrImpl: Signal | TransitionFunction, implementation?: TransitionFunction,
+    state: State, signalOrImpl: Signal | TransitionFunction, implementation?: TransitionFunction,
 ): Transition {
-	if (typeof signalOrImpl === "function") {
-		return new Transition(state, void 0, signalOrImpl as TransitionFunction);
-	}
+    if (typeof signalOrImpl === "function") {
+        return new Transition(state, void 0, signalOrImpl as TransitionFunction);
+    }
 
-	return new Transition(state, signalOrImpl as Signal, implementation);
+    return new Transition(state, signalOrImpl as Signal, implementation);
 }
 
 /**
@@ -51,31 +50,32 @@ export function transition(
  * You can extend this class to implement some custom logic.
  */
 export class Transition {
-	/**
-	 * @param state - state from which the transition is possible
-	 * @param signal - signal, that triggers the transition, or `undefined` if it is an unconditional transition
-	 * @param implementation - the next state or a function that returns one
-	 */
-	constructor(
-		public state: State,
-		public signal: Signal | undefined,
-		public implementation: TransitionFunction,
-	) {}
+    /**
+     * @param state - state from which the transition is possible
+     * @param signal - signal, that triggers the transition, or `undefined` if it is an unconditional transition
+     * @param implementation - the next state or a function that returns one
+     */
+    constructor(
+        public state: State,
+        public signal: Signal | undefined,
+        public implementation: TransitionFunction,
+    ) {
+    }
 
-	/**
-	 * This lifecycle method is triggered when all conditions are met to perform a transition.
-	 * @param stateMachine
-	 */
-	public onConditionsMet(stateMachine: Automaton): void {
-		// Placeholder
-	}
+    /**
+     * This lifecycle method is triggered when all conditions are met to perform a transition.
+     * @param stateMachine
+     */
+    public onConditionsMet(stateMachine: Automaton): void {
+        // Placeholder
+    }
 
-	/**
-	 * This lifecycle method is triggered when conditions to perform a transition are no longer met
-	 */
-	public onConditionsUnmet(stateMachine: Automaton): void {
-		// Placeholder
-	}
+    /**
+     * This lifecycle method is triggered when conditions to perform a transition are no longer met
+     */
+    public onConditionsUnmet(stateMachine: Automaton): void {
+        // Placeholder
+    }
 }
 
 /**
@@ -87,97 +87,98 @@ export class Transition {
  */
 export class Automaton {
 
-	/**
-	 * Current state of the [[Automaton]].
-	 */
-	public get state(): State {
-		return this.currentState;
-	}
+    /**
+     * Current state of the [[Automaton]].
+     */
+    public get state(): State {
+        return this.currentState;
+    }
 
-	/**
-	 * @ignore
-	 */
-	private currentState: State = INITIAL;
+    /**
+     * @ignore
+     */
+    private currentState: State = INITIAL;
 
-	/**
-	 * Holds a list of transitions that are possible to perform from the current state.
-	 */
-	private possibleTransitions: Transition[] = [];
+    /**
+     * Holds a list of transitions that are possible to perform from the current state.
+     */
+    private possibleTransitions: Transition[] = [];
 
-	constructor(private transitions: Transitions) {}
+    constructor(private transitions: Transitions) {
+    }
 
-	/**
-	 * Performs a state machine transition, dispatching a [[Signal]].
-	 *
-	 * @param signal - target signal
-	 * @param args - custom arguments passed to the transition function
-	 */
-	public transition(signal: Signal, ...args: any[]) {
-		const transitions = this.findTransitions(signal);
-		const prevState = this.state;
+    /**
+     * Performs a state machine transition, dispatching a [[Signal]].
+     *
+     * @param signal - target signal
+     * @param args - custom arguments passed to the transition function
+     */
+    public transition(signal: Signal, ...args: any[]) {
+        const transitions = this.findTransitions(signal);
+        const prevState = this.state;
 
-		for (const target of transitions) {
-			this.doTransition(target.implementation, ...args);
+        for (const target of transitions) {
+            this.doTransition(target.implementation, ...args);
 
-			// The first transition to change state is the last one
-			if (prevState !== this.state) {
-				return;
-			}
-		}
-	}
+            // The first transition to change state is the last one
+            if (prevState !== this.state) {
+                return;
+            }
+        }
+    }
 
-	/**
-	 * Resets [[Automaton]] state back to [[INITIAL]].
-	 */
-	public reset() {
-		this.doTransition(INITIAL);
-	}
+    /**
+     * Resets [[Automaton]] state back to [[INITIAL]].
+     */
+    public reset() {
+        this.doTransition(INITIAL);
+    }
 
-	/**
-	 * Performs a [[Transition]], calling it's lifecycle methods.
-	 *
-	 * @param implementation - transition function or next finite machine state
-	 * @param args - custom arguments passed to the implementation function
-	 */
-	protected doTransition(implementation: TransitionFunction, ...args: any[]) {
-		this.possibleTransitions.forEach(
-			(_) => _.onConditionsUnmet(this),
-		);
+    /**
+     * Performs a [[Transition]], calling it's lifecycle methods.
+     *
+     * @param implementation - transition function or next finite machine state
+     * @param args - custom arguments passed to the implementation function
+     */
+    protected doTransition(implementation: TransitionFunction, ...args: any[]) {
+        this.possibleTransitions.forEach(
+            (_) => _.onConditionsUnmet(this),
+        );
 
-		if (typeof implementation === "function") {
-			this.currentState = implementation(this, ...args);
-		} else {
-			this.currentState = implementation;
-		}
+        if (typeof implementation === "function") {
+            this.currentState = implementation(this, ...args);
+        } else {
+            this.currentState = implementation;
+        }
 
-		this.possibleTransitions = this.getPossibleTransitions();
+        this.possibleTransitions = this.getPossibleTransitions();
 
-		this.possibleTransitions.forEach(
-			(_) => _.onConditionsMet(this),
-		);
-	}
+        this.possibleTransitions.forEach(
+            (_) => _.onConditionsMet(this),
+        );
+    }
 
-	/**
-	 * Gets the list of all transitions that are possible to perform from the current state.
-	 */
-	private getPossibleTransitions(): Transition[] {
-		return this.transitions.filter(
-			(_) => _.state === this.state,
-		);
-	}
+    /**
+     * Gets the list of all transitions that are possible to perform from the current state.
+     */
+    private getPossibleTransitions(): Transition[] {
+        return this.transitions.filter(
+            (_) => _.state === this.state,
+        );
+    }
 
-	/**
-	 * Returns the transition that satisfies the following conditions:
-	 * - It is possible to perform from the current state
-	 * - It can be performed by the provided [[Signal]]
-	 *
-	 * @param signal
-	 */
-	private findTransitions(signal?: Signal): Transition[] {
-		return this.getPossibleTransitions().filter(
-			(_) => (_.signal === signal || _.signal === void 0),
-		);
-	}
+    /**
+     * Returns the transition that satisfies the following conditions:
+     * - It is possible to perform from the current state
+     * - It can be performed by the provided [[Signal]]
+     *
+     * @param signal
+     */
+    private findTransitions(signal?: Signal): Transition[] {
+        return this.getPossibleTransitions().filter(
+            (_) => (_.signal === signal || _.signal === void 0),
+        );
+    }
 }
 
 /**
@@ -207,5 +208,5 @@ export class Automaton {
  * @param transitions
  */
 export function automaton(transitions: Transitions): Automaton {
-	return new Automaton(transitions);
+    return new Automaton(transitions);
 }

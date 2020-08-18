@@ -8,7 +8,6 @@
     "experimentalDecorators": true,
     "sourceMap": true,
     "moduleResolution": "Node",
-    "outDir": "lib",
     "target": "es5",
     "declaration": true,
     "jsx": "react",
@@ -17,8 +16,5 @@
       "es7",
       "dom"
     ]
-  },
-  "include": [
-    "src/**/*"
-  ]
+  }
 }

@@ -1,5 +1,4 @@
-import {INITIAL, Automaton, transition} from "../src/classes/Automaton";
-import {timer} from "../src/classes/TimerTransition";
+import {INITIAL, Automaton, transition, timer} from "automatons-core";
 
 const STATE_A = 0;
 const STATE_B = 1;

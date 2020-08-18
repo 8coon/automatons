@@ -1,6 +1,4 @@
-import {automaton, INITIAL} from "../src";
-import {sideEffect} from "../src/classes/SideEffect";
-import {transition} from "../src/classes/Automaton";
+import {automaton, INITIAL, sideEffect, transition} from "automatons-core";
 
 const SIGNAL_LOW = 0;
 const SIGNAL_HIGH = 1;

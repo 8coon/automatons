@@ -1,22 +1,20 @@
 import * as React from "react";
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
 import {
+    INITIAL,
+    Transition,
+    transition,
     asSignal,
     automatonOf,
+    timer,
     CATCH,
     CREATE,
-    IAutomatonDecoratorParams,
     MOUNT,
     UNMOUNT,
     UPDATE,
     withAutomaton,
-} from "../src/classes/ReactBinding";
-
-import {INITIAL, State, Transition, transition,} from "../src/classes/Automaton";
-
-import {timer} from "../src";
+} from "automatons-core";
 
 Enzyme.configure({adapter: new Adapter()});
 
@@ -34,9 +32,9 @@ const Signals: SignalsType = {
 
 function createTestComponent(
     transitions: Transition[],
-    initial: State,
+    initial: any,
     log: string[],
-    {catching, mapToState}: IAutomatonDecoratorParams = {},
+    {catching, mapToState}: any = {},
 ): any {
     return ((catching || mapToState) ? withAutomaton({catching, mapToState}) : withAutomaton)(
         class extends React.Component {

@@ -1,13 +1,10 @@
 import {
     INITIAL,
-    Signal,
-    State,
     Automaton,
     Transition,
     transition,
-    TransitionFunction,
     automaton,
-} from "../src/classes/Automaton";
+} from "automatons-core";
 
 const STATE_A = 0;
 const STATE_B = 1;
@@ -88,9 +85,9 @@ describe('Automaton', () => {
 
         class CustomTransition extends Transition {
             constructor(
-                state: State,
-                signal: Signal | undefined,
-                implementation: TransitionFunction
+                state: any,
+                signal: any,
+                implementation: any
             ) {
                 super(state, signal, (target: Automaton, ...args: []) => {
                     expect(target).toBe(stateMachine);

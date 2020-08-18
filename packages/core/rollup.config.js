@@ -17,7 +17,7 @@ const baseConfig = mode => ({
         NodeResolve(),
         mode === 'min' && (
             closureCompiler({
-                compilation_level: 'ADVANCED',
+                compilation_level: 'SIMPLE',
             })
         ),
         // Deleting all comments from output file

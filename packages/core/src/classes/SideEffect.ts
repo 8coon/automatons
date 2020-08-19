@@ -9,16 +9,16 @@ type SideEffectImplementation = ((...args: any) => void);
  * Class that represents a special side effect transition.
  */
 class SideEffect extends Transition {
-	constructor(
-		state: State,
-		signal: Signal | undefined,
-		implementation: SideEffectImplementation,
-	) {
-		super(state, signal, (...args: any[]) => {
-			implementation(...args);
-			return state;
-		});
-	}
+    constructor(
+        state: State,
+        signal: Signal | undefined,
+        implementation: SideEffectImplementation,
+    ) {
+        super(state, signal, (...args: any[]) => {
+            implementation(...args);
+            return state;
+        });
+    }
 }
 
 /**
@@ -30,18 +30,18 @@ class SideEffect extends Transition {
 export function sideEffect(state: State, implementation: SideEffectImplementation): SideEffect;
 export function sideEffect(state: State, signal: Signal, implementation: SideEffectImplementation): SideEffect;
 export function sideEffect(
-	state: State,
-	signalOrImpl: Signal | SideEffectImplementation,
-	implementation?: SideEffectImplementation,
+    state: State,
+    signalOrImpl: Signal | SideEffectImplementation,
+    implementation?: SideEffectImplementation,
 ): SideEffect {
-	if (typeof signalOrImpl === "function") {
-		implementation = signalOrImpl;
-		signalOrImpl = void 0;
-	}
+    if (typeof signalOrImpl === "function") {
+        implementation = signalOrImpl;
+        signalOrImpl = void 0;
+    }
 
-	return new SideEffect(
-		state,
-		signalOrImpl as Signal,
-		implementation,
-	);
+    return new SideEffect(
+        state,
+        signalOrImpl as Signal,
+        implementation,
+    );
 }

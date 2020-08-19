@@ -1,0 +1,56 @@
+{
+    "name": "automatons",
+    "version": "0.0.4",
+    "description": "Side effect management library based on finite state machines",
+    "main": "dist/automatons.min.js",
+    "scripts": {
+        "build": "rollup --config rollup.config.js",
+        "docs": "typedoc --name Automatons --readme none --theme minimal --out docs/ --mode file src/",
+        "prepublishOnly": "npm run lint && npm run build && npm test"
+    },
+    "keywords": [
+        "side-effect",
+        "state-management",
+        "react",
+        "finite-state-machine",
+        "fsm"
+    ],
+    "author": "Kaibito Young",
+    "license": "MIT",
+    "repository": "https://github.com/8coon/automatons",
+    "files": [
+        "dist/src",
+        "dist/automatons.min.js",
+        "dist/automatons.umd.js"
+    ],
+    "types": "dist/src/index.d.ts",
+    "devDependencies": {
+        "@ampproject/rollup-plugin-closure-compiler": "^0.26.0",
+        "@types/enzyme": "^3.10.5",
+        "@types/enzyme-adapter-react-16": "^1.0.6",
+        "@types/jest": "^26.0.10",
+        "@types/react": "^16.9.46",
+        "@types/react-test-renderer": "^16.9.3",
+        "cz-conventional-changelog": "^3.2.0",
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.3",
+        "husky": "^4.2.5",
+        "jest": "^26.4.0",
+        "js-cleanup": "^1.0.1",
+        "react": "^16.7.0",
+        "react-dom": "^16.13.1",
+        "rollup": "^2.26.3",
+        "rollup-plugin-cleanup": "^3.1.1",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-sizes": "^1.0.3",
+        "rollup-plugin-strip-code": "^0.2.7",
+        "rollup-plugin-typescript2": "^0.27.2",
+        "rollup-plugin-visualizer": "^4.1.0",
+        "ts-jest": "^26.2.0",
+        "tslib": "^2.0.1",
+        "typedoc": "^0.18.0"
+    },
+    "peerDependencies": {
+        "react": ">=16"
+    }
+}

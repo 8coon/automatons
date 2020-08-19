@@ -5,7 +5,7 @@
     ],
     "jsRules": {},
     "rules": {
-        "indent": [true, "tabs", 2],
+        "indent": [true, "spaces", 4],
         "ordered-imports": [
             true,
             {

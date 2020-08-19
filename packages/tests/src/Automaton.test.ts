@@ -4,7 +4,7 @@ import {
     Transition,
     transition,
     automaton,
-} from "automatons-core";
+} from "automatons";
 
 const STATE_A = 0;
 const STATE_B = 1;

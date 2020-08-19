@@ -1,11 +1,11 @@
 {
-    "name": "automatons-core",
+    "name": "automatons",
     "version": "0.0.4",
     "description": "Side effect management library based on finite state machines",
     "main": "dist/automatons.min.js",
     "scripts": {
         "build": "rollup --config rollup.config.js",
-        "docs": "node_modules/.bin/typedoc --name Automatons --readme none --theme minimal --out docs/ --mode file src/",
+        "docs": "typedoc --name Automatons --readme none --theme minimal --out docs/ --mode file src/",
         "prepublishOnly": "npm run lint && npm run build && npm test"
     },
     "keywords": [

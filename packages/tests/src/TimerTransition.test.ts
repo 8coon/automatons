@@ -1,4 +1,4 @@
-import {INITIAL, Automaton, transition, timer} from "automatons-core";
+import {INITIAL, Automaton, transition, timer} from "automatons";
 
 const STATE_A = 0;
 const STATE_B = 1;

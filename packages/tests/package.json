@@ -3,7 +3,8 @@
     "version": "0.0.4",
     "private": true,
     "scripts": {
-        "test": "node_modules/.bin/jest --coverage"
+        "prepare": "rm -rf tmp && node ./prepare.js",
+        "test": "npm run prepare && jest --coverage"
     },
     "author": "Kaibito Young",
     "license": "MIT",
@@ -16,12 +17,14 @@
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.3",
         "jest": "^26.4.0",
+        "mkdirp": "^1.0.4",
         "react": "^16.7.0",
         "react-dom": "^16.13.1",
         "ts-jest": "^26.2.0",
-        "tslib": "^2.0.1"
+        "tslib": "^2.0.1",
+        "unminify": "^1.1.0"
     },
     "dependencies": {
-        "automatons-core": "../core"
+        "automatons": "../core"
     }
 }

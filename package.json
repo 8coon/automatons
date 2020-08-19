@@ -1,12 +1,12 @@
 {
-    "name": "automatons",
+    "name": "automatons-core",
     "version": "0.0.4",
     "license": "MIT",
     "private": true,
     "scripts": {
-        "lint": "node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
+        "lint": "tslint -c tslint.json 'src/**/*.ts'",
         "fix": "npm run lint -- --fix",
-        "commit": "node_modules/.bin/git-cz"
+        "commit": "git-cz"
     },
     "devDependencies": {
         "cz-conventional-changelog": "^3.2.0",

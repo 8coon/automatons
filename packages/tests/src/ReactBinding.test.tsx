@@ -14,7 +14,7 @@ import {
     UNMOUNT,
     UPDATE,
     withAutomaton,
-} from "automatons-core";
+} from "automatons";
 
 Enzyme.configure({adapter: new Adapter()});
 
